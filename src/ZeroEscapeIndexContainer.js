@@ -2,9 +2,10 @@ import React from 'react'
 import ZeroEscapeOverview from './ZeroEscapeOverview'
 import ZeroEscapeNNN from './ZeroEscapeNNN'
 import ZeroEscapeVLR from './ZeroEscapeVLR'
+import ZeroEscapeZTD from './ZeroEscapeZTD'
 
 const ZeroEscapeIndexContainer = (props) => {
-  //ORIGNAL WEBSITE TITLE COLOR: #13947E
+  //GREEN WEBSITE TITLE COLOR: #1FD1B2
   return (
     <div>
       <section className="hero is-small">
@@ -23,6 +24,7 @@ const ZeroEscapeIndexContainer = (props) => {
         <h2>Games</h2>
         <ZeroEscapeNNN />
         <ZeroEscapeVLR />
+        <ZeroEscapeZTD />
       </div>
 
     </div>
