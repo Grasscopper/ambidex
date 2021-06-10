@@ -73,7 +73,7 @@ const ZeroEscapeVLR = (props) => {
   return (
     <div className="columns is-multiline">
 
-        <div className="character column is-full" style={{ paddingBottom: 0 }}>
+        <div className="character column is-full" style={{ paddingBottom: 0, marginTop: 100 }}>
         <img
           src={Title}
           alt="Virtue's Last Reward Logo"
