@@ -15,7 +15,7 @@ import Q from './Images/ZTD/Characters/Q.jpg'
 import Sigma from './Images/ZTD/Characters/Sigma.jpg'
 
 const ZeroEscapeZTD = (props) => {
-  //Characters from Virtue's Last Reward
+  //Characters from Zero Time Dilemma
   let characters = [
     {
       name: "Carlos",
@@ -72,7 +72,6 @@ const ZeroEscapeZTD = (props) => {
 
   return (
     <div className="columns is-multiline">
-
         <div className="character column is-full" style={{ paddingBottom: 0, marginTop: 100 }}>
         <img
           src={Title}
