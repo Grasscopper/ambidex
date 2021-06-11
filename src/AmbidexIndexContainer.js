@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AmbidexIndexTile from './AmbidexIndexTile'
+
 import { nonary, virtue, zero} from './characters'
+import createPersistedState from 'use-persisted-state'
 
 const AmbidexIndexContainer = (props) => {
-  const [player, setPlayer] = useState(virtue[0])
-  const [characters, setCharacters] = useState(nonary)
-  const [selectedGames, setSelectedGames] = useState([true, false, false])
+  // const [characters, setCharacters] = useState(nonary) //an array of characters
+  const useSelectedCharacters = createPersistedState('selectedCharacters')
+  const [characters, setCharacters] = useSelectedCharacters(nonary)
 
-  let gameOne = "button is-primary"
-  let gameTwo = "button"
-  let gameThree = "button"
+  // const [selectedGames, setSelectedGames] = useState([true, false, false])
+  const useSelectedGames = createPersistedState('selectedGames')
+  const [selectedGames, setSelectedGames] = useSelectedGames([true, false, false])
+
+  let gameOne = "button is-medium is-primary"
+  let gameTwo = "button is-medium"
+  let gameThree = "button is-medium"
 
   if (selectedGames[0]) {
-    gameOne = "button is-primary"
-    gameTwo = "button"
-    gameThree = "button"
+    gameOne = "button is-medium is-primary"
+    gameTwo = "button is-medium"
+    gameThree = "button is-medium"
   }
   else if (selectedGames[1]) {
-    gameOne = "button"
-    gameTwo = "button is-primary"
-    gameThree = "button"
+    gameOne = "button is-medium"
+    gameTwo = "button is-medium is-primary"
+    gameThree = "button is-medium"
   }
   else if (selectedGames[2]) {
-    gameOne = "button"
-    gameTwo = "button"
-    gameThree = "button is-primary"
+    gameOne = "button is-medium"
+    gameTwo = "button is-medium"
+    gameThree = "button is-medium is-primary"
   }
 
   const chooseGame = (event) => {
@@ -60,28 +66,32 @@ const AmbidexIndexContainer = (props) => {
     <div className="index-container">
       <h1 style={{ color: "#1FD1B2", fontWeight: "bold" }}>Ambidex Game</h1>
 
-      <h2>Choose a game and your player character</h2>
+      <h2 style={{ border: "none" }}>Choose a game and your player character</h2>
       <div className="columns is-multiline">
+
         <div className="column is-full">
           <Link to="/">
-            <button className="button is-primary">Back to Home</button>
+            <button className="button is-link">
+              <strong>Back</strong>
+            </button>
           </Link>
         </div>
+
         <div className="character column is-one-third">
-          <button id="nonary" className={gameOne} onClick={chooseGame}>
-            <strong>999</strong>
+          <button id="nonary" className={gameOne} onClick={chooseGame} style={{ width: "100%" }}>
+            <strong>9 Hours, 9 Persons, 9 Doors</strong>
           </button>
         </div>
 
         <div className="character column is-one-third">
-          <button id="virtue" className={gameTwo} onClick={chooseGame}>
-            <strong>VLR</strong>
+          <button id="virtue" className={gameTwo} onClick={chooseGame} style={{ width: "100%" }}>
+            <strong>Zero Escape: Virtue's Last Reward</strong>
           </button>
         </div>
 
         <div className="character column is-one-third">
-          <button id="zero" className={gameThree} onClick={chooseGame}>
-            <strong>ZTD</strong>
+          <button id="zero" className={gameThree} onClick={chooseGame} style={{ width: "100%" }}>
+            <strong>Zero Time Dilemma</strong>
           </button>
         </div>
 
@@ -99,8 +109,3 @@ export default AmbidexIndexContainer
 //   ...student,
 //   ultimate: "Ultimate Detective"
 // })
-
-//Persisting state in local storage
-// import createPersistedState from 'use-persisted-state'
-// const useProtagonistState = createPersistedState('protagonist')
-// const [protagonist, setProtagonist] = useProtagonistState(virtue[0]) //Sigma

@@ -43,8 +43,20 @@ img {
   border: solid;
 }
 
+button:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
+}
+
 .character {
   text-align: center;
+}
+
+.inactive-character-tile {
+  color: white;
+}
+
+.selected-character-tile {
+  color: #3273DC;
 }
 
 /* .column-nest ORIGINAL BACKGROUND COLOR AND BOX SHADOW */
@@ -57,9 +69,9 @@ img {
   height: 75%;
 }
 
-.zero-nest {
-  background-color: #F14668;
+.player-nest {
+  background-color: #1FD1B2;
   border-radius: 2%;
-  box-shadow: 12px 12px 2px 1px rgba(139, 0, 0, .2);
+  box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2);
   height: 75%;
 }

@@ -15,7 +15,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={ZeroEscapeIndexContainer} />
         <Route exact path="/game" component={AmbidexIndexContainer} />
-        <Route exact path="/game/:version" component={AmbidexGameContainer} />
+        <Route exact path="/game/:version/:name" component={AmbidexGameContainer} />
       </Switch>
     </HashRouter>
   </React.StrictMode>,
