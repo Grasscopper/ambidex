@@ -11,11 +11,11 @@ const AmbidexGameContainer = (props) => {
     game: "",
     picture: ""
   })
-  const [characters, setCharacters] = useState([])
-  const [resetGame, setResetGame] = useState(false)
+  const [characters, setCharacters] = useState([]) //all characters regardless of team
+  const [teams, setTeams] = useState( [ [], [], [], [], [], [] ] ) //6 teams of PAIRS and SOLOS
 
-  const version = props.match.params.version
-  const findPlayer = props.match.params.name
+  const version = props.match.params.version //which of the 3 games are we using?
+  const findPlayer = props.match.params.name //which player was selected to play as?
 
   useEffect(() => {
     switch (version) {
@@ -32,7 +32,7 @@ const AmbidexGameContainer = (props) => {
         setPlayer(nonary.find( ({ name }) => name === findPlayer ))
         break
     }
-  }, [resetGame])
+  }, [])
 
   useEffect(() => {
     switch (version) {
@@ -49,12 +49,11 @@ const AmbidexGameContainer = (props) => {
         setCharacters(nonary.filter( ({ name }) => name !== findPlayer ))
         break
     }
-  }, [resetGame])
+  }, [])
 
   let characterTiles = <div></div>
   if (characters.length === 8) {
     characterTiles = characters.map((character) => {
-      console.log(player.name)
       return (
         <AmbidexGameTile
           key={character.name}
@@ -62,6 +61,48 @@ const AmbidexGameContainer = (props) => {
           size={"is-one-quarter"}
           color={"column-nest"}
         />
+      )
+    })
+  }
+
+  const shuffle = (array) => {
+    let currentIndex = array.length, randomIndex
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+    }
+
+    return array
+  }
+
+  const assignTeams = (event) => {
+    event.preventDefault()
+
+    let currentCharacters = characters //8 characters excluding the player
+    currentCharacters.push(player) //9 players including the player
+    let shuffledCharacters = shuffle(currentCharacters)  //randomize the 9 characters
+
+    let newTeams = [ [], [], [], [], [], [] ] //place shuffled characters here to assign teams
+
+    for (let z = 0; z < newTeams.length; z++) { //z is each of the 6 teams
+      if (z === 0 || z % 2 === 0) { //an even index is a PAIR
+        newTeams[z].push(shuffledCharacters.pop())
+        newTeams[z].push(shuffledCharacters.pop())
+      }
+      else { //an odd index is a SOLO
+        newTeams[z].push(shuffledCharacters.pop())
+      }
+    }
+    setTeams(newTeams)
+  }
+
+  let pairA = []
+  if (teams[0].length == 2) { //teams[0] is a 2 element array
+    pairA = teams[0].map((character) => {
+      return (
+        <ZeroEscapeIndexTile key={character.name} character={character} />
       )
     })
   }
@@ -76,12 +117,43 @@ const AmbidexGameContainer = (props) => {
 
         <div className="columns is-multiline">
 
+          {pairA}
+
           <div className="column is-full">
             <Link to="/game">
               <button className="button is-link">
                 <strong>Back</strong>
               </button>
             </Link>
+          </div>
+
+          <div className="character column is-half is-offset-one-quarter">
+            <button
+              className="button is-large is-primary"
+              style={{ width: "50%" }}
+              onClick={assignTeams}
+            >
+              <strong>Assign Teams</strong>
+            </button>
+          </div>
+
+          <div className="is-half is-offset-one-quarter">
+              <div className="modal">
+                <div className="modal-background"></div>
+                <div className="modal-card">
+                  <header className="modal-card-head">
+                    <p className="modal-card-title">Modal title</p>
+                    <button className="delete" aria-label="close"></button>
+                  </header>
+                  <section className="modal-card-body">
+                    <h1>Start Game</h1>
+                  </section>
+                  <footer className="modal-card-foot">
+                    <button className="button is-success">Save changes</button>
+                    <button className="button">Cancel</button>
+                  </footer>
+                </div>
+              </div>
           </div>
 
           <div className="column is-full">
