@@ -51,20 +51,6 @@ const AmbidexGameContainer = (props) => {
     }
   }, [])
 
-  let characterTiles = <div></div>
-  if (characters.length === 8) {
-    characterTiles = characters.map((character) => {
-      return (
-        <AmbidexGameTile
-          key={character.name}
-          character={character}
-          size={"is-one-quarter"}
-          color={"column-nest"}
-        />
-      )
-    })
-  }
-
   const shuffle = (array) => {
     let currentIndex = array.length, randomIndex
     while (0 !== currentIndex) {
@@ -98,11 +84,104 @@ const AmbidexGameContainer = (props) => {
     setTeams(newTeams)
   }
 
+
+  let assignTeamsButton =
+  <div className="character column is-half is-offset-one-quarter">
+    <button
+      className="button is-large is-primary"
+      style={{ width: "50%" }}
+      onClick={assignTeams}>
+      <strong>Assign Teams</strong>
+    </button>
+  </div>
+
   let pairA = []
-  if (teams[0].length == 2) { //teams[0] is a 2 element array
-    pairA = teams[0].map((character) => {
+  if (teams[0].length == 2) {
+    assignTeamsButton = <div></div>
+
+    pairA =
+    <>
+      <div className="column is-full">
+        <h3>PAIR A</h3>
+      </div>
+      <ZeroEscapeIndexTile key={teams[0][0].name} character={teams[0][0]} />
+      <ZeroEscapeIndexTile key={teams[0][1].name} character={teams[0][1]} />
+      <div className="column is-one-third" />
+    </>
+  }
+
+  let soloA = []
+  if (teams[1].length == 1) {
+    soloA =
+    <>
+      <div className="column is-full">
+        <h3>SOLO A</h3>
+      </div>
+      <ZeroEscapeIndexTile key={teams[1][0].name} character={teams[1][0]} />
+      <div className="column is-two-thirds" />
+    </>
+  }
+
+  let pairB = []
+  if (teams[2].length == 2) {
+    pairB =
+    <>
+      <div className="column is-full">
+        <h3>PAIR B</h3>
+      </div>
+      <ZeroEscapeIndexTile key={teams[2][0].name} character={teams[2][0]} />
+      <ZeroEscapeIndexTile key={teams[2][1].name} character={teams[2][1]} />
+      <div className="column is-one-third" />
+    </>
+  }
+
+  let soloB = []
+  if (teams[3].length == 1) {
+    soloB =
+    <>
+      <div className="column is-full">
+        <h3>SOLO B</h3>
+      </div>
+      <ZeroEscapeIndexTile key={teams[3][0].name} character={teams[3][0]} />
+      <div className="column is-two-thirds" />
+    </>
+  }
+
+  let pairC = []
+  if (teams[4].length == 2) {
+    pairC =
+    <>
+      <div className="column is-full">
+        <h3>PAIR C</h3>
+      </div>
+      <ZeroEscapeIndexTile key={teams[4][0].name} character={teams[4][0]} />
+      <ZeroEscapeIndexTile key={teams[4][1].name} character={teams[4][1]} />
+      <div className="column is-one-third" />
+    </>
+  }
+
+  let soloC = []
+  if (teams[5].length == 1) {
+    soloC =
+    <>
+      <div className="column is-full">
+        <h3>SOLO C</h3>
+      </div>
+      <ZeroEscapeIndexTile key={teams[5][0].name} character={teams[5][0]} />
+      <div className="column is-two-thirds" />
+    </>
+  }
+
+  let characterTiles = <div></div>
+  if (characters.length === 8) {
+    characterTiles = characters.map((character) => {
       return (
-        <ZeroEscapeIndexTile key={character.name} character={character} />
+        <AmbidexGameTile
+        key={character.name}
+        character={character}
+        size={"is-one-quarter"}
+        color={"column-nest"}
+        />
       )
     })
   }
@@ -117,8 +196,6 @@ const AmbidexGameContainer = (props) => {
 
         <div className="columns is-multiline">
 
-          {pairA}
-
           <div className="column is-full">
             <Link to="/game">
               <button className="button is-link">
@@ -127,37 +204,10 @@ const AmbidexGameContainer = (props) => {
             </Link>
           </div>
 
-          <div className="character column is-half is-offset-one-quarter">
-            <button
-              className="button is-large is-primary"
-              style={{ width: "50%" }}
-              onClick={assignTeams}
-            >
-              <strong>Assign Teams</strong>
-            </button>
-          </div>
-
-          <div className="is-half is-offset-one-quarter">
-              <div className="modal">
-                <div className="modal-background"></div>
-                <div className="modal-card">
-                  <header className="modal-card-head">
-                    <p className="modal-card-title">Modal title</p>
-                    <button className="delete" aria-label="close"></button>
-                  </header>
-                  <section className="modal-card-body">
-                    <h1>Start Game</h1>
-                  </section>
-                  <footer className="modal-card-foot">
-                    <button className="button is-success">Save changes</button>
-                    <button className="button">Cancel</button>
-                  </footer>
-                </div>
-              </div>
-          </div>
+          {assignTeamsButton}
 
           <div className="column is-full">
-            <h2>Player</h2>
+            <h2>Player Selected</h2>
           </div>
 
           <div className="column is-one-quarter" />
@@ -171,9 +221,20 @@ const AmbidexGameContainer = (props) => {
 
           <div className="column is-one-quarter" />
 
+
           <div className="column is-full">
             <h2>Opponents</h2>
           </div>
+
+          {pairA}
+          {soloA}
+
+          {pairB}
+          {soloB}
+
+          {pairC}
+          {soloC}
+
           {characterTiles}
 
         </div>
