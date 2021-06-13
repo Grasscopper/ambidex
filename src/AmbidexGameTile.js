@@ -1,5 +1,6 @@
 import React from 'react'
 
+//same as the ZeroEscapeIndexTile, but with a customizable color and size
 const AmbidexGameTile = (props) => {
   let column = "character column "
   column += props.size
