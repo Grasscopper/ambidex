@@ -85,7 +85,7 @@ const AmbidexIndexContainer = (props) => {
 
         <div className="character column is-one-third">
           <button id="virtue" className={gameTwo} onClick={chooseGame} style={{ width: "100%" }}>
-            <strong>Zero Escape: Virtue's Last Reward</strong>
+            <strong>Virtue's Last Reward</strong>
           </button>
         </div>
 
