@@ -45,14 +45,25 @@ const FinalAmbidexGameContainer = (props) => {
       }
     }
 
-    setItem('teams', newTeams)
-    setTeams(newTeams)
+    if (getItem('teams')) {
+      setTeams(getItem('teams'))
+    }
+    else {
+      setItem('teams', newTeams)
+      setTeams(newTeams)
+    }
   }, [])
 
   let myTeam = <div></div>
 
   let teamTiles = <div></div>
-  let teamNames = ['PAIR A', 'SOLO A', 'PAIR B', 'SOLO B', 'PAIR C', 'SOLO C']
+  let teamNames =
+  ['RED PAIR',
+  'GREEN SOLO',
+  'BLUE PAIR',
+  'MAGENTA SOLO',
+  'YELLOW PAIR',
+  'CYAN SOLO']
 
   if (teams[0].length === 2) {
     let counter = 0
@@ -68,8 +79,8 @@ const FinalAmbidexGameContainer = (props) => {
         if (team.length === 1) {
           myTeam =
           <>
-            <div className="column is-full">
-            <p className="title has-text-white">{currentTeamName}</p>
+            <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+            <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
             </div>
 
             <AmbidexGameTile
@@ -87,8 +98,8 @@ const FinalAmbidexGameContainer = (props) => {
           if (team[0].name === player.name) {
             myTeam =
             <>
-              <div className="column is-full">
-              <p className="title has-text-white">{currentTeamName}</p>
+              <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+              <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
               </div>
 
               <AmbidexGameTile
@@ -108,8 +119,8 @@ const FinalAmbidexGameContainer = (props) => {
           else if (team[1].name === player.name) {
             myTeam =
             <>
-              <div className="column is-full">
-              <p className="title has-text-white">{currentTeamName}</p>
+              <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+              <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
               </div>
 
               <AmbidexGameTile
@@ -131,8 +142,8 @@ const FinalAmbidexGameContainer = (props) => {
       else if (team.length === 2) {
         tile =
         <>
-          <div className="column is-full">
-            <p className="title has-text-white">{currentTeamName}</p>
+          <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+            <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
           </div>
 
           <AmbidexGameTile
@@ -152,8 +163,8 @@ const FinalAmbidexGameContainer = (props) => {
       else if (team.length === 1) {
         tile =
         <>
-          <div className="column is-full">
-            <p className="title has-text-white">{currentTeamName}</p>
+          <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+            <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
           </div>
 
           <AmbidexGameTile
@@ -167,7 +178,6 @@ const FinalAmbidexGameContainer = (props) => {
       }
       return (<>{tile}</>)
     })
-    debugger
   }
 
   return (
@@ -175,7 +185,7 @@ const FinalAmbidexGameContainer = (props) => {
 
       <h1 style={{ color: "#1FD1B2", fontWeight: "bold" }}>Ambidex Game</h1>
 
-      <h2 style={{ border: "none" }}>Teams assigned. Next step, in progress</h2>
+      <h2 style={{ border: "none" }}>The game has started. Next step, is a work in progress</h2>
 
       <div className="columns is-multiline">
 
@@ -190,7 +200,7 @@ const FinalAmbidexGameContainer = (props) => {
         <div className="column is-full"><h2>Player</h2></div>
         {myTeam}
 
-        <div className="column is-full"><h2>Opponents</h2></div>
+        <div className="column is-full" style={{ marginTop: 20 }}><h2>Opponents</h2></div>
         {teamTiles}
       </div>
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AmbidexIndexTile from './AmbidexIndexTile'
 
@@ -13,6 +13,12 @@ const AmbidexIndexContainer = (props) => {
     let item = JSON.parse(localStorage.getItem(key))
     return item
   }
+
+  useEffect(() => {
+    if (getItem('teams')) {
+      localStorage.removeItem('teams')
+    }
+  }, [])
 
   const useSelectedGames = createPersistedState('selectedGames')
   const [selectedGames, setSelectedGames] = useSelectedGames([true, false, false, 'nonary'])
