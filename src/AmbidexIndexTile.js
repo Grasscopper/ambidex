@@ -5,7 +5,7 @@ const AmbidexIndexTile = (props) => {
   return (
     <div className="character column is-one-third">
       <NavLink
-        to={`game/${props.character.game}/${props.character.name}`}
+        to={`/game/${props.character.game}/${props.character.name}`}
         className="inactive-character-tile"
         activeClassName="selected-character-tile">
         <div className="column-nest">
@@ -18,3 +18,17 @@ const AmbidexIndexTile = (props) => {
 }
 
 export default AmbidexIndexTile
+
+//Original AmbidexIndexTile
+//----------------------------
+// <div className="character column is-one-third">
+//   <NavLink
+//     to={`game/${props.character.game}/${props.character.name}`}
+//     className="inactive-character-tile"
+//     activeClassName="selected-character-tile">
+//     <div className="column-nest">
+//       <h1>{props.character.name}</h1>
+//       <img src={props.character.picture} alt={props.character.name} />
+//     </div>
+//   </NavLink>
+// </div>
