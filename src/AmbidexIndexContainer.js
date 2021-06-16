@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import AmbidexIndexTile from './AmbidexIndexTile'
 
-import { nonary, virtue, zero} from './characters'
 import createPersistedState from 'use-persisted-state'
 
 const AmbidexIndexContainer = (props) => {
-  // const [characters, setCharacters] = useState(nonary) //an array of characters
-  const useSelectedCharacters = createPersistedState('selectedCharacters')
-  const [characters, setCharacters] = useSelectedCharacters(nonary)
+  let setItem = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value))
+  }
 
-  // const [selectedGames, setSelectedGames] = useState([true, false, false])
+  let getItem = (key) => {
+    let item = JSON.parse(localStorage.getItem(key))
+    return item
+  }
+
   const useSelectedGames = createPersistedState('selectedGames')
-  const [selectedGames, setSelectedGames] = useSelectedGames([true, false, false])
+  const [selectedGames, setSelectedGames] = useSelectedGames([true, false, false, 'nonary'])
 
   let gameOne = "button is-medium is-primary"
   let gameTwo = "button is-medium"
@@ -34,33 +37,49 @@ const AmbidexIndexContainer = (props) => {
     gameThree = "button is-medium is-primary"
   }
 
+  let characters = []
+
+  switch (selectedGames[3]) {
+    case "nonary":
+      characters = getItem("nonary")
+      break
+    case "virtue":
+      characters = getItem("virtue")
+      break
+    case "zero":
+      characters = getItem("zero")
+      break
+    default:
+      characters = getItem("nonary")
+      break
+  }
+
   const chooseGame = (event) => {
     event.preventDefault()
     switch (event.currentTarget.id) {
       case "nonary":
-        setCharacters(nonary)
-        setSelectedGames([true, false, false])
+        setSelectedGames([true, false, false, "nonary"])
         break
       case "virtue":
-        setCharacters(virtue)
-        setSelectedGames([false, true, false])
+        setSelectedGames([false, true, false, "virtue"])
         break
       case "zero":
-        setCharacters(zero)
-        setSelectedGames([false, false, true])
+        setSelectedGames([false, false, true, "zero"])
         break
       default:
-        setCharacters(nonary)
-        setSelectedGames([true, false, false])
+        setSelectedGames([true, false, false, "nonary"])
         break
     }
   }
 
-  let characterTiles = characters.map((character) => {
-    return (
-      <AmbidexIndexTile key={character.name} character={character} />
-    )
-  })
+  let characterTiles = []
+  if (characters.length > 0) {
+    characterTiles = characters.map((character) => {
+      return (
+        <AmbidexIndexTile key={character.id} character={character} />
+      )
+    })
+  }
 
   return (
     <div className="index-container">

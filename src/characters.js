@@ -32,144 +32,171 @@ import SigmaZero from './Images/ZTD/Characters/Sigma.jpg'
 
 export let nonary = [
   {
+    id: 0,
     name: "Ace",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: Ace
   },
   {
+    id: 1,
     name: "Snake",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: Snake
   },
   {
+    id: 2,
     name: "Santa",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: Santa
   },
   {
+    id: 3,
     name: "Clover",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: CloverNonary
   },
   {
+    id: 4,
     name: "Junpei",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: JunpeiNonary
   },
   {
+    id: 5,
     name: "June",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: June
   },
   {
+    id: 6,
     name: "Seven",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: Seven
   },
   {
+    id: 7,
     name: "Lotus",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: Lotus
   },
   {
+    id: 8,
     name: "Ninth Man",
-    game: "9 Hours, 9 Persons, 9 Doors",
+    game: "nonary",
     picture: NinthMan
   }
 ]
 
 export let virtue = [
   {
+    id: 9,
     name: "Sigma",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: SigmaVirtue
   },
   {
+    id: 10,
     name: "Phi",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: PhiVirtue
   },
   {
+    id: 11,
     name: "Luna",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: Luna
   },
   {
+    id: 12,
     name: "Clover",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: CloverVirtue
   },
   {
+    id: 13,
     name: "Alice",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: Alice
   },
   {
+    id: 14,
     name: "Dio",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: Dio
   },
   {
+    id: 15,
     name: "Tenmyouji",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: Tenmyouji
   },
   {
+    id: 16,
     name: "Quark",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: Quark
   },
   {
+    id: 17,
     name: "K",
-    game: "Virtue's Last Reward",
+    game: "virtue",
     picture: K
   }
 ]
 
 export let zero = [
   {
+    id: 18,
     name: "Carlos",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: Carlos
   },
   {
+    id: 19,
     name: "Akane",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: Akane
   },
   {
+    id: 20,
     name: "Junpei",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: JunpeiZero
   },
   {
+    id: 21,
     name: "Q",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: Q
   },
   {
+    id: 22,
     name: "Eric",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: Eric
   },
   {
+    id: 23,
     name: "Mira",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: Mira
   },
   {
+    id: 24,
     name: "Diana",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: Diana
   },
   {
+    id: 25,
     name: "Sigma",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: SigmaZero
   },
   {
+    id: 26,
     name: "Phi",
-    game: "Zero Time Dilemma",
+    game: "zero",
     picture: PhiZero
   }
 ]

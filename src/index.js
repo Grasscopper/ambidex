@@ -2,20 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import ZeroEscapeIndexContainer from './ZeroEscapeIndexContainer'
 import AmbidexIndexContainer from './AmbidexIndexContainer'
-import AmbidexGameContainer from './AmbidexGameContainer'
+import FinalAmbidexGameContainer from './FinalAmbidexGameContainer'
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter basename="nonary">
       <Switch>
         <Route exact path="/" component={ZeroEscapeIndexContainer} />
-        <Route exact path="/game" component={AmbidexIndexContainer} />
-        <Route exact path="/game/:version/:name" component={AmbidexGameContainer} />
+        <Route exact path="/play" component={AmbidexIndexContainer} />
+        <Route exact path="/game/:version/:name" component={FinalAmbidexGameContainer} />
       </Switch>
     </HashRouter>
   </React.StrictMode>,
