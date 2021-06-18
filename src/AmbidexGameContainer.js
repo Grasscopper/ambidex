@@ -1,71 +1,21 @@
-//Ambidex Game Tutorial
-// <div className="column is-half is-offset-one-quarter" style={{ marginTop: 20 }}>
-// <p>
-// The Ambidex Game is a game of loyalty and betrayal inspired by the Prisoner's Dilemma.
-// Each player begins with 3 points and must reach 9 points in order to win. First, teams
-// are assigned: SOLOs and PAIRs. At the end of the round, opponents are assigned and the
-// two teams decide where to ALLY or BETRAY. If both teams ALLY, they both get +2 points.
-// However, if one BETRAYS the other team who chose to ALLY, then the traitor will earn
-// +3 points and the ally will lose 2 points. If both teams betray, then no points are given.
-// If 0 points are reached, then the player is killed. Opponents begin with a 50% chance of
-// choosing to Ally, but by building Trust before the Ambidex Game, you will increase their
-// chances of being an ally. Spend time with 2 opponents before playing the Ambidex Game.
-// Good luck. -Zero
-// </p>
-// </div>
-
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AmbidexGameTile from './AmbidexGameTile'
-import ZeroEscapeIndexTile from './ZeroEscapeIndexTile'
-import SigmaVirtue from './Images/VLR/Characters/Sigma.jpg'
-import { nonary, virtue, zero} from './characters'
+import AmbidexGamePlayerTile from './AmbidexGamePlayerTile'
 
+import { buildTrust } from './myFunctions.js'
+
+//The game has begun and teams have been assigned.
+//Build trust with two opponents
 const AmbidexGameContainer = (props) => {
-  const [player, setPlayer] = useState({
-    name: "",
-    game: "",
-    picture: ""
-  })
-  const [characters, setCharacters] = useState([]) //all characters regardless of team
-  const [teams, setTeams] = useState( [ [], [], [], [], [], [] ] ) //6 teams of PAIRS and SOLOS
+  let setItem = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value))
+  }
 
-  const version = props.match.params.version //which of the 3 games are we using?
-  const findPlayer = props.match.params.name //which player was selected to play as?
-
-  useEffect(() => {
-    switch (version) {
-      case "9 Hours, 9 Persons, 9 Doors":
-        setPlayer(nonary.find( ({ name }) => name === findPlayer ))
-        break
-      case "Virtue's Last Reward":
-        setPlayer(virtue.find( ({ name }) => name === findPlayer ))
-        break
-      case "Zero Time Dilemma":
-        setPlayer(zero.find( ({ name }) => name === findPlayer ))
-        break
-      default:
-        setPlayer(nonary.find( ({ name }) => name === findPlayer ))
-        break
-    }
-  }, [])
-
-  useEffect(() => {
-    switch (version) {
-      case "9 Hours, 9 Persons, 9 Doors":
-        setCharacters(nonary.filter( ({ name }) => name !== findPlayer ))
-        break
-      case "Virtue's Last Reward":
-        setCharacters(virtue.filter( ({ name }) => name !== findPlayer ))
-        break
-      case "Zero Time Dilemma":
-        setCharacters(zero.filter( ({ name }) => name !== findPlayer ))
-        break
-      default:
-        setCharacters(nonary.filter( ({ name }) => name !== findPlayer ))
-        break
-    }
-  }, [])
+  let getItem = (key) => {
+    let item = JSON.parse(localStorage.getItem(key))
+    return item
+  }
 
   const shuffle = (array) => {
     let currentIndex = array.length, randomIndex
@@ -79,13 +29,15 @@ const AmbidexGameContainer = (props) => {
     return array
   }
 
-  const assignTeams = (event) => {
-    event.preventDefault()
+  const version = props.match.params.version //which of the 3 games are we using?
+  const findPlayer = props.match.params.name //which player was selected to play as?
 
-    let currentCharacters = characters //8 characters excluding the player
-    currentCharacters.push(player) //9 players including the player
-    let shuffledCharacters = shuffle(currentCharacters)  //randomize the 9 characters
+  const [player, setPlayer] = useState(getItem(`${version} ${findPlayer}`))
+  const [characters, setCharacters] = useState(getItem(`${version}`)) //all characters regardless of team
+  const [teams, setTeams] = useState( [ [], [], [], [], [], [] ] ) //6 teams of PAIRS and SOLOS
 
+  useEffect(() => {
+    let shuffledCharacters = shuffle(characters) //randomize the 9 characters
     let newTeams = [ [], [], [], [], [], [] ] //place shuffled characters here to assign teams
 
     for (let z = 0; z < newTeams.length; z++) { //z is each of the 6 teams
@@ -97,344 +49,183 @@ const AmbidexGameContainer = (props) => {
         newTeams[z].push(shuffledCharacters.pop())
       }
     }
-    setTeams(newTeams)
+
+    if (getItem('teams')) { //persist teams after refresh
+      setTeams(getItem('teams'))
+    }
+    else {
+      setItem('teams', newTeams) //new game
+      setTeams(newTeams)
+    }
+  }, [] )
+
+  const sendBuildTrust = (character) => {
+    buildTrust(character)
+    let updateTeams = [...teams]
+    for (let a = 0; a < updateTeams.length; a++) {
+      for (let b = 0; b < updateTeams[a].length; b++) {
+        if (character.name === updateTeams[a][b].name) updateTeams[a][b] = character
+      }
+    }
+    setItem('teams', updateTeams)
+    setTeams(updateTeams)
   }
 
+  let myTeam = <div></div>
 
-  let assignTeamsButton =
-  <div className="character column is-half is-offset-one-quarter" style={{ marginTop: 20 }}>
-    <button
-      className="button is-large is-primary"
-      style={{ width: "60%",  }}
-      onClick={assignTeams}>
-      <strong>Assign Teams</strong>
-    </button>
-  </div>
+  let teamTiles = <div></div>
+  let teamNames =
+  ['RED PAIR',
+  'GREEN SOLO',
+  'BLUE PAIR',
+  'MAGENTA SOLO',
+  'YELLOW PAIR',
+  'CYAN SOLO']
 
-  let playerSelected =
-  <>
-  <div className="column is-one-quarter" />
-  <AmbidexGameTile
-    key={player.name}
-    character={player}
-    size={"is-half"}
-    color={"player-nest"}
-  />
-  <div className="column is-one-quarter" />
-  </>
+  if (teams[0].length === 2) {
+    let counter = 0
 
-  let pairA = []
-  if (teams[0].length == 2) {
-    assignTeamsButton = <div></div>
+    teamTiles = teams.map((team) => {
+      let tile = <div></div>
 
-    //if the player is a team member
-    if (teams[0][0].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">PAIR A</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
+      let currentTeamName = teamNames[counter]
+      counter++
+
+      if (team.find( ({ name }) => name === player.name )) {
+
+        if (team.length === 1) {
+          myTeam =
+          <>
+            <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+            <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
+            </div>
+
+            <AmbidexGamePlayerTile
+            key={player.id}
             character={player}
             size={"is-half"}
             color={"player-nest"} />
 
+            <div className="column is-half" />
+          </>
+        }
+
+        else if (team.length === 2) {
+
+          if (team[0].name === player.name) {
+            myTeam =
+            <>
+              <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+              <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
+              </div>
+
+              <AmbidexGamePlayerTile
+              key={player.id}
+              character={player}
+              size={"is-half"}
+              color={"player-nest"} />
+
+              <AmbidexGameTile
+                key={team[1].id}
+                character={team[1]}
+                sendBuildTrust={sendBuildTrust}
+                size={"is-half"}
+                color={"column-nest"} />
+            </>
+          }
+
+          else if (team[1].name === player.name) {
+            myTeam =
+            <>
+              <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+              <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
+              </div>
+
+              <AmbidexGamePlayerTile
+              key={player.id}
+              character={player}
+              size={"is-half"}
+              color={"player-nest"} />
+
+              <AmbidexGameTile
+                key={team[0].id}
+                character={team[0]}
+                sendBuildTrust={sendBuildTrust}
+                size={"is-half"}
+                color={"column-nest"} />
+            </>
+          }
+        }
+      }
+
+      else if (team.length === 2) {
+        tile =
+        <>
+          <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+            <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
+          </div>
+
           <AmbidexGameTile
-            key={teams[0][1].name}
-            character={teams[0][1]}
+            key={team[0].id}
+            character={team[0]}
+            sendBuildTrust={sendBuildTrust}
             size={"is-half"}
             color={"column-nest"} />
-      </>
-    }
-    else if (teams[0][1].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">PAIR A</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
 
           <AmbidexGameTile
-            key={teams[0][0].name}
-            character={teams[0][0]}
+            key={team[1].id}
+            character={team[1]}
+            sendBuildTrust={sendBuildTrust}
             size={"is-half"}
             color={"column-nest"} />
-      </>
-    }
-    else { //player is not on this team
-      pairA =
-      <>
-        <div className="column is-full">
-          <p className="title has-text-white">PAIR A</p>
-        </div>
-        <ZeroEscapeIndexTile key={teams[0][0].name} character={teams[0][0]} />
-        <ZeroEscapeIndexTile key={teams[0][1].name} character={teams[0][1]} />
-        <div className="column is-one-third" />
-      </>
-    }
+        </>
+      }
 
-  }
-
-  let soloA = []
-  if (teams[1].length == 1) {
-    //if the player is a team member
-    if (teams[1][0].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">SOLO A</p>
+      else if (team.length === 1) {
+        tile =
+        <>
+          <div className="column is-full" style={{ marginTop: 20, paddingBottom: 0 }}>
+            <p className="title has-text-white" style={{ marginBottom: 0 }}>{currentTeamName}</p>
           </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
-      </>
-    }
-    else { //player is not on this team
-      soloA =
-      <>
-        <div className="column is-full">
-          <p className="title has-text-white">SOLO A</p>
-        </div>
-        <ZeroEscapeIndexTile key={teams[1][0].name} character={teams[1][0]} />
-        <div className="column is-two-thirds" />
-      </>
-    }
-
-  }
-
-  let pairB = []
-  if (teams[2].length == 2) {
-    //if the player is a team member
-    if (teams[2][0].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">PAIR B</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
 
           <AmbidexGameTile
-            key={teams[2][1].name}
-            character={teams[2][1]}
-            size={"is-half"}
-            color={"column-nest"} />
-      </>
-    }
-    else if (teams[2][1].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">PAIR B</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
+          key={team[0].id}
+          character={team[0]}
+          sendBuildTrust={sendBuildTrust}
+          size={"is-half"}
+          color={"column-nest"} />
 
-          <AmbidexGameTile
-            key={teams[2][0].name}
-            character={teams[2][0]}
-            size={"is-half"}
-            color={"column-nest"} />
-      </>
-    }
-    else { //player is not on this team
-      pairB =
-      <>
-        <div className="column is-full">
-          <p className="title has-text-white">PAIR B</p>
-        </div>
-        <ZeroEscapeIndexTile key={teams[2][0].name} character={teams[2][0]} />
-        <ZeroEscapeIndexTile key={teams[2][1].name} character={teams[2][1]} />
-        <div className="column is-one-third" />
-      </>
-    }
-
-  }
-
-  let soloB = []
-  if (teams[3].length == 1) {
-    //if the player is a team member
-    if (teams[3][0].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">SOLO B</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
-      </>
-    }
-    else { //player is not on this team
-      soloB =
-      <>
-        <div className="column is-full">
-          <p className="title has-text-white">SOLO B</p>
-        </div>
-        <ZeroEscapeIndexTile key={teams[3][0].name} character={teams[3][0]} />
-        <div className="column is-two-thirds" />
-      </>
-    }
-
-  }
-
-  let pairC = []
-  if (teams[4].length == 2) {
-    //if the player is a team member
-    if (teams[4][0].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">PAIR C</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
-
-          <AmbidexGameTile
-            key={teams[4][1].name}
-            character={teams[4][1]}
-            size={"is-half"}
-            color={"column-nest"} />
-      </>
-    }
-    else if (teams[4][1].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">PAIR C</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
-
-          <AmbidexGameTile
-            key={teams[4][0].name}
-            character={teams[4][0]}
-            size={"is-half"}
-            color={"column-nest"} />
-      </>
-    }
-    else { //player is not on this team
-      pairC =
-      <>
-        <div className="column is-full">
-          <p className="title has-text-white">PAIR C</p>
-        </div>
-        <ZeroEscapeIndexTile key={teams[4][0].name} character={teams[4][0]} />
-        <ZeroEscapeIndexTile key={teams[4][1].name} character={teams[4][1]} />
-        <div className="column is-one-third" />
-      </>
-    }
-
-  }
-
-  let soloC = []
-  if (teams[5].length == 1) {
-    //if the player is a team member
-    if (teams[5][0].name === player.name) {
-      playerSelected =
-      <>
-          <div className="column is-full">
-            <p className="title has-text-white">SOLO C</p>
-          </div>
-          <AmbidexGameTile
-            key={player.name}
-            character={player}
-            size={"is-half"}
-            color={"player-nest"} />
-      </>
-    }
-    else { //player is not on this team
-      soloC =
-      <>
-        <div className="column is-full">
-          <p className="title has-text-white">SOLO C</p>
-        </div>
-        <ZeroEscapeIndexTile key={teams[5][0].name} character={teams[5][0]} />
-        <div className="column is-two-thirds" />
-      </>
-    }
-
-  }
-
-
-  let characterTiles = <div></div>
-  if (characters.length === 8) {
-    characterTiles = characters.map((character) => {
-      return (
-        <AmbidexGameTile
-        key={character.name}
-        character={character}
-        size={"is-one-quarter"}
-        color={"column-nest"}
-        />
-      )
+          <div className="column is-half" />
+        </>
+      }
+      return (<>{tile}</>)
     })
   }
 
   return (
-    <div>
-      <div className="index-container">
+    <div className="index-container">
 
-        <h1 style={{ color: "#1FD1B2", fontWeight: "bold" }}>Ambidex Game</h1>
+      <h1 style={{ color: "#1FD1B2", fontWeight: "bold" }}>Ambidex Game</h1>
 
-        <h2 style={{ border: "none" }}>{player.game}</h2>
+      <h2 style={{ border: "none" }}>The game has started. Next step, is a work in progress</h2>
 
-        <div className="columns is-multiline">
+      <div className="columns is-multiline">
 
-          <div className="column is-full">
-            <Link to="/game">
-              <button className="button is-link">
-                <strong>Back</strong>
-              </button>
-            </Link>
-          </div>
-
-          {assignTeamsButton}
-
-          <div className="column is-full">
-            <h2>Player</h2>
-          </div>
-
-          {playerSelected}
-
-          <div className="column is-full">
-            <h2>Opponents</h2>
-          </div>
-
-          {pairA}
-          {soloA}
-
-          {pairB}
-          {soloB}
-
-          {pairC}
-          {soloC}
-
-          {characterTiles}
-
+        <div className="column is-full">
+          <Link to="/play">
+            <button className="button is-link">
+              <strong>Back</strong>
+            </button>
+          </Link>
         </div>
+
+        <div className="column is-full"><h2>Player</h2></div>
+        {myTeam}
+
+        <div className="column is-full" style={{ marginTop: 20 }}><h2>Opponents</h2></div>
+        {teamTiles}
       </div>
+
     </div>
   )
 }

@@ -35,55 +35,73 @@ export let nonary = [
     id: 0,
     name: "Ace",
     game: "nonary",
-    picture: Ace
+    picture: Ace,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 1,
     name: "Snake",
     game: "nonary",
-    picture: Snake
+    picture: Snake,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 2,
     name: "Santa",
     game: "nonary",
-    picture: Santa
+    picture: Santa,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 3,
     name: "Clover",
     game: "nonary",
-    picture: CloverNonary
+    picture: CloverNonary,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 4,
     name: "Junpei",
     game: "nonary",
-    picture: JunpeiNonary
+    picture: JunpeiNonary,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 5,
     name: "June",
     game: "nonary",
-    picture: June
+    picture: June,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 6,
     name: "Seven",
     game: "nonary",
-    picture: Seven
+    picture: Seven,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 7,
     name: "Lotus",
     game: "nonary",
-    picture: Lotus
+    picture: Lotus,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 8,
     name: "Ninth Man",
     game: "nonary",
-    picture: NinthMan
+    picture: NinthMan,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   }
 ]
 
@@ -92,55 +110,73 @@ export let virtue = [
     id: 9,
     name: "Sigma",
     game: "virtue",
-    picture: SigmaVirtue
+    picture: SigmaVirtue,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 10,
     name: "Phi",
     game: "virtue",
-    picture: PhiVirtue
+    picture: PhiVirtue,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 11,
     name: "Luna",
     game: "virtue",
-    picture: Luna
+    picture: Luna,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 12,
     name: "Clover",
     game: "virtue",
-    picture: CloverVirtue
+    picture: CloverVirtue,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 13,
     name: "Alice",
     game: "virtue",
-    picture: Alice
+    picture: Alice,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 14,
     name: "Dio",
     game: "virtue",
-    picture: Dio
+    picture: Dio,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 15,
     name: "Tenmyouji",
     game: "virtue",
-    picture: Tenmyouji
+    picture: Tenmyouji,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 16,
     name: "Quark",
     game: "virtue",
-    picture: Quark
+    picture: Quark,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 17,
     name: "K",
     game: "virtue",
-    picture: K
+    picture: K,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   }
 ]
 
@@ -149,54 +185,72 @@ export let zero = [
     id: 18,
     name: "Carlos",
     game: "zero",
-    picture: Carlos
+    picture: Carlos,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 19,
     name: "Akane",
     game: "zero",
-    picture: Akane
+    picture: Akane,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 20,
     name: "Junpei",
     game: "zero",
-    picture: JunpeiZero
+    picture: JunpeiZero,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 21,
     name: "Q",
     game: "zero",
-    picture: Q
+    picture: Q,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 22,
     name: "Eric",
     game: "zero",
-    picture: Eric
+    picture: Eric,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 23,
     name: "Mira",
     game: "zero",
-    picture: Mira
+    picture: Mira,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 24,
     name: "Diana",
     game: "zero",
-    picture: Diana
+    picture: Diana,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 25,
     name: "Sigma",
     game: "zero",
-    picture: SigmaZero
+    picture: SigmaZero,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   },
   {
     id: 26,
     name: "Phi",
     game: "zero",
-    picture: PhiZero
+    picture: PhiZero,
+    trust: 50,
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
   }
 ]

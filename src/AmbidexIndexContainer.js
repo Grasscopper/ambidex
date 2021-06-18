@@ -4,6 +4,7 @@ import AmbidexIndexTile from './AmbidexIndexTile'
 
 import createPersistedState from 'use-persisted-state'
 
+//Choose the version of the Ambidex Game and your player character
 const AmbidexIndexContainer = (props) => {
   let setItem = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value))
@@ -110,7 +111,7 @@ const AmbidexIndexContainer = (props) => {
 
         <div className="character column is-one-third">
           <button id="virtue" className={gameTwo} onClick={chooseGame} style={{ width: "100%" }}>
-            <strong>Virtue's Last Reward</strong>
+          <strong>Virtue's Last Reward</strong>
           </button>
         </div>
 
