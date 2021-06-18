@@ -8,6 +8,7 @@ import ZeroEscapeZTD from './ZeroEscapeZTD'
 
 import { nonary, virtue, zero} from './characters'
 
+//An overview of the entire series with a link to the Ambidex Game (AmbidexIndexContainer)
 const ZeroEscapeIndexContainer = (props) => {
   let setItem = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value))
@@ -21,27 +22,29 @@ const ZeroEscapeIndexContainer = (props) => {
   useEffect(() => {
     let ls = localStorage
     //if local storage does not exist
-    if (!ls.getItem('nonary')) {
+    if (!ls.getItem('nonary') || !ls.getItem('nonary')[0].trust) {
+      //since characters are saved to local storage, the new properties Trust and Hearts will cause errors
+      //for returing users. So, it must be checked that their version of local storage characters has
+      //these properties. Only one new property for one character needs to be tested
       setItem('nonary', nonary)
       for (let z = 0; z < nonary.length; z++) {
         setItem(`${nonary[z].game} ${nonary[z].name}`, nonary[z])
       }
     }
 
-    if (!ls.getItem('virtue')) {
+    if (!ls.getItem('virtue') || !ls.getItem('virtue')[0].trust) {
       setItem('virtue', virtue)
       for (let z = 0; z < virtue.length; z++) {
         setItem(`${virtue[z].game} ${virtue[z].name}`, virtue[z])
       }
     }
 
-    if (!ls.getItem('zero')) {
+    if (!ls.getItem('zero') || !ls.getItem('zero')[0].trust) {
       setItem('zero', zero)
       for (let z = 0; z < zero.length; z++) {
         setItem(`${zero[z].game} ${zero[z].name}`, zero[z])
       }
     }
-
   }, [])
 
   return (
