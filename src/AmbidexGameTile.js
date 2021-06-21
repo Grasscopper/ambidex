@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AmbidexModalTile from './AmbidexModalTile'
 import { buildTrust } from './myFunctions.js'
 
 //same as the ZeroEscapeIndexTile, but with customizable CSS
 const AmbidexGameTile = (props) => {
+  let [modal, setModal] = useState("modal")
+
+  const activateModal = (event) => {
+    event.preventDefault()
+    setModal("modal is-active")
+  }
+
+  const deactivateModal = (event) => {
+    event.preventDefault()
+    setModal("modal")
+  }
+
+  const handleTrust = (event) => {
+    event.preventDefault()
+    setModal("modal")
+    props.sendBuildTrust(props.character)
+  }
+
   let column = "character column "
   column += props.size
 
   let hearts = props.character.hearts
-
-  const handleTrust = (event) => {
-    event.preventDefault()
-    props.sendBuildTrust(props.character)
-  }
 
   const icons =
   <span className="icon-text" style={{ padding: 20 }}>
@@ -29,14 +43,25 @@ const AmbidexGameTile = (props) => {
   </span>
 
   return (
-    <div className={column} style={{  }}>
-      <div className={props.color} style={{ height: "100%", cursor: "pointer" }} onClick={handleTrust}>
-        <h1>{props.character.name}</h1>
-        <img src={props.character.picture} alt={props.character.name} />
-        <p style={{ fontSize: 18 }}>This is my team!</p>
-        {icons}
-      </div>
-    </div>
+    <>
+        <div className={column}>
+          <div className={props.color} style={{ height: "100%", cursor: "pointer" }} onClick={activateModal}>
+            <h1>{props.character.name}</h1>
+            <img src={props.character.picture} alt={props.character.name} />
+            <p style={{ fontSize: 28,
+              fontWeight: "bold",
+              backgroundColor: "#1FD1B2",
+              marginTop: 10 }}>TRUST {props.character.trust}</p>
+            {icons}
+          </div>
+        </div>
+
+        <AmbidexModalTile
+        character={props.character}
+        modal={modal}
+        handleTrust={handleTrust}
+        deactivateModal={deactivateModal} />
+    </>
   )
 }
 

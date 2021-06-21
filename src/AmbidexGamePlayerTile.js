@@ -23,10 +23,13 @@ const AmbidexGamePlayerTile = (props) => {
 
   return (
     <div className={column} style={{  }}>
-      <div className={props.color} style={{ height: "100%", cursor: "pointer" }}>
+      <div className={props.color} style={{ height: "100%" }}>
         <h1>{props.character.name}</h1>
         <img src={props.character.picture} alt={props.character.name} />
-        <p>This is my team!</p>
+        <p style={{ fontSize: 28,
+          fontWeight: "bold",
+          backgroundColor: "#1FD1B2",
+          marginTop: 10 }}>PLAYER</p>
         {icons}
       </div>
     </div>
