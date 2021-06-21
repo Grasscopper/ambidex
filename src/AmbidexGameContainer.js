@@ -209,7 +209,7 @@ const AmbidexGameContainer = (props) => {
 
       <h2 style={{ border: "none" }}>
       The Ambidex Game has started. Select 2 characters to build their trust.
-      The higher their trust, the more likely they to Ally.</h2>
+      The higher their trust, the more likely they are to Ally.</h2>
 
       <div className="columns is-multiline">
 

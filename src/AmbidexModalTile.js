@@ -6,7 +6,7 @@ const AmbidexModalTile = (props) => {
   return (
     <div className={props.modal}>
         <div className="modal-background" />
-        <div className="modal-card">
+        <div className="modal-card" style={{ border: "solid" }}>
               <header className="modal-card-head" style={{ backgroundColor: "#282C34", border: "none" }}>
                   <p className="modal-card-title" style={{ color: "white", fontSize: 30 }}>Build Trust</p>
 
