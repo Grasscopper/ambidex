@@ -207,7 +207,9 @@ const AmbidexGameContainer = (props) => {
 
       <h1 style={{ color: "#1FD1B2", fontWeight: "bold" }}>Ambidex Game</h1>
 
-      <h2 style={{ border: "none" }}>The game has started. Next step, is a work in progress</h2>
+      <h2 style={{ border: "none" }}>
+      The Ambidex Game has started. Select 2 characters to build their trust.
+      The higher their trust, the more likely they to Ally.</h2>
 
       <div className="columns is-multiline">
 
