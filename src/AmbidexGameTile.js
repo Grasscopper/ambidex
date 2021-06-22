@@ -60,7 +60,9 @@ const AmbidexGameTile = (props) => {
         character={props.character}
         modal={modal}
         handleTrust={handleTrust}
+        time={props.time}
         deactivateModal={deactivateModal} />
+        
     </>
   )
 }

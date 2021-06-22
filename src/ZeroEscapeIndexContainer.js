@@ -22,7 +22,7 @@ const ZeroEscapeIndexContainer = (props) => {
   useEffect(() => {
     let ls = localStorage
     //if local storage does not exist
-    if (!ls.getItem('nonary') || !ls.getItem('nonary')[0].trust) {
+    if (!ls.getItem('nonary') || !ls.getItem('nonary')[0].trust || !ls.getItem('nonary')[0].time) {
       //since characters are saved to local storage, the new properties Trust and Hearts will cause errors
       //for returing users. So, it must be checked that their version of local storage characters has
       //these properties. Only one new property for one character needs to be tested
@@ -32,14 +32,14 @@ const ZeroEscapeIndexContainer = (props) => {
       }
     }
 
-    if (!ls.getItem('virtue') || !ls.getItem('virtue')[0].trust) {
+    if (!ls.getItem('virtue') || !ls.getItem('virtue')[0].trust || !ls.getItem('virtue')[0].time) {
       setItem('virtue', virtue)
       for (let z = 0; z < virtue.length; z++) {
         setItem(`${virtue[z].game} ${virtue[z].name}`, virtue[z])
       }
     }
 
-    if (!ls.getItem('zero') || !ls.getItem('zero')[0].trust) {
+    if (!ls.getItem('zero') || !ls.getItem('zero')[0].trust || !!ls.getItem('zero')[0].time) {
       setItem('zero', zero)
       for (let z = 0; z < zero.length; z++) {
         setItem(`${zero[z].game} ${zero[z].name}`, zero[z])

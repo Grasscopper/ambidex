@@ -37,7 +37,8 @@ export let nonary = [
     game: "nonary",
     picture: Ace,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 1,
@@ -45,7 +46,8 @@ export let nonary = [
     game: "nonary",
     picture: Snake,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 2,
@@ -53,7 +55,8 @@ export let nonary = [
     game: "nonary",
     picture: Santa,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 3,
@@ -61,7 +64,8 @@ export let nonary = [
     game: "nonary",
     picture: CloverNonary,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 4,
@@ -69,7 +73,8 @@ export let nonary = [
     game: "nonary",
     picture: JunpeiNonary,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 5,
@@ -77,7 +82,8 @@ export let nonary = [
     game: "nonary",
     picture: June,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 6,
@@ -85,7 +91,8 @@ export let nonary = [
     game: "nonary",
     picture: Seven,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 7,
@@ -93,7 +100,8 @@ export let nonary = [
     game: "nonary",
     picture: Lotus,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 8,
@@ -101,7 +109,8 @@ export let nonary = [
     game: "nonary",
     picture: NinthMan,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   }
 ]
 
@@ -112,7 +121,8 @@ export let virtue = [
     game: "virtue",
     picture: SigmaVirtue,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 10,
@@ -120,7 +130,8 @@ export let virtue = [
     game: "virtue",
     picture: PhiVirtue,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 11,
@@ -128,7 +139,8 @@ export let virtue = [
     game: "virtue",
     picture: Luna,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 12,
@@ -136,7 +148,8 @@ export let virtue = [
     game: "virtue",
     picture: CloverVirtue,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 13,
@@ -144,7 +157,8 @@ export let virtue = [
     game: "virtue",
     picture: Alice,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 14,
@@ -152,7 +166,8 @@ export let virtue = [
     game: "virtue",
     picture: Dio,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 15,
@@ -160,7 +175,8 @@ export let virtue = [
     game: "virtue",
     picture: Tenmyouji,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 16,
@@ -168,7 +184,8 @@ export let virtue = [
     game: "virtue",
     picture: Quark,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 17,
@@ -176,7 +193,8 @@ export let virtue = [
     game: "virtue",
     picture: K,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   }
 ]
 
@@ -187,7 +205,8 @@ export let zero = [
     game: "zero",
     picture: Carlos,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 19,
@@ -195,7 +214,8 @@ export let zero = [
     game: "zero",
     picture: Akane,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 20,
@@ -203,7 +223,8 @@ export let zero = [
     game: "zero",
     picture: JunpeiZero,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 21,
@@ -211,7 +232,8 @@ export let zero = [
     game: "zero",
     picture: Q,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 22,
@@ -219,7 +241,8 @@ export let zero = [
     game: "zero",
     picture: Eric,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 23,
@@ -227,7 +250,8 @@ export let zero = [
     game: "zero",
     picture: Mira,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 24,
@@ -235,7 +259,8 @@ export let zero = [
     game: "zero",
     picture: Diana,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 25,
@@ -243,7 +268,8 @@ export let zero = [
     game: "zero",
     picture: SigmaZero,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   },
   {
     id: 26,
@@ -251,6 +277,7 @@ export let zero = [
     game: "zero",
     picture: PhiZero,
     trust: 50,
-    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+    hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
+    time: 2
   }
 ]
