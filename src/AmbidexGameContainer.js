@@ -112,6 +112,7 @@ const AmbidexGameContainer = (props) => {
             <AmbidexGamePlayerTile
             key={player.id}
             character={player}
+            time={getItem('time')}
             size={"is-half"}
             color={"player-nest"} />
 
@@ -131,11 +132,13 @@ const AmbidexGameContainer = (props) => {
               <AmbidexGamePlayerTile
               key={player.id}
               character={player}
+              time={getItem('time')}
               size={"is-half"}
               color={"player-nest"} />
 
               <AmbidexGameTile
                 key={team[1].id}
+                player={player}
                 character={team[1]}
                 sendBuildTrust={sendBuildTrust}
                 time={getItem('time')}
@@ -154,11 +157,13 @@ const AmbidexGameContainer = (props) => {
               <AmbidexGamePlayerTile
               key={player.id}
               character={player}
+              time={getItem('time')}
               size={"is-half"}
               color={"player-nest"} />
 
               <AmbidexGameTile
                 key={team[0].id}
+                player={player}
                 character={team[0]}
                 sendBuildTrust={sendBuildTrust}
                 time={getItem('time')}
@@ -178,6 +183,7 @@ const AmbidexGameContainer = (props) => {
 
           <AmbidexGameTile
             key={team[0].id}
+            player={player}
             character={team[0]}
             sendBuildTrust={sendBuildTrust}
             time={getItem('time')}
@@ -186,6 +192,7 @@ const AmbidexGameContainer = (props) => {
 
           <AmbidexGameTile
             key={team[1].id}
+            player={player}
             character={team[1]}
             sendBuildTrust={sendBuildTrust}
             time={getItem('time')}
@@ -203,7 +210,8 @@ const AmbidexGameContainer = (props) => {
 
           <AmbidexGameTile
           key={team[0].id}
-          character={team[0]}
+
+  player={player}        character={team[0]}
           sendBuildTrust={sendBuildTrust}
           time={getItem('time')}
           size={"is-half"}

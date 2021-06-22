@@ -1,7 +1,8 @@
 import React from 'react'
 
 const AmbidexModalTile = (props) => {
-  let sum = props.character.trust + 20
+  let trustOutcome = props.character.trust + 20
+  let timeOutcome = props.time - 1
 
   let modal =
   <div className={props.modal}>
@@ -21,17 +22,36 @@ const AmbidexModalTile = (props) => {
 
                           <span className="icon-text">
                               <span style={{ fontWeight: "bold" }}>TRUST {props.character.trust}</span>
+
                               <span className="icon">
                                   <i className="fas fa-heart"></i>
                               </span>
 
-                              <span className="icon">
+                              <span className="icon" style={{ paddingRight: 5 }}>
                                 <i className="fas fa-arrow-right"></i>
                               </span>
 
-                              <span style={{ fontWeight: "bold" }}>{sum}</span>
+                              <span style={{ fontWeight: "bold" }}>{trustOutcome}</span>
                               <span className="icon">
                                   <i className="fas fa-heart"></i>
+                              </span>
+                          </span>
+
+                          <span className="icon-text" style={{ color: "#F14668", paddingLeft: 20, paddingRight: 20 }}>
+                              <span style={{ fontWeight: "bold" }}>TIME {props.time}</span>
+
+                              <span className="icon">
+                                <i className="fas fa-hourglass"></i>
+                              </span>
+
+                              <span className="icon" style={{ paddingRight: 5 }}>
+                                <i className="fas fa-arrow-right"></i>
+                              </span>
+
+                              <span style={{ fontWeight: "bold" }}>{timeOutcome}</span>
+
+                              <span className="icon">
+                                <i className="fas fa-hourglass"></i>
                               </span>
                           </span>
                       </div>
@@ -65,11 +85,19 @@ const AmbidexModalTile = (props) => {
               </header>
 
               <section className="modal-card-body" style={{ backgroundColor: "#F14668", fontSize: 24 }}>
-                  <p>No time left. Unable to build trust.</p>
+                  <span className="icon-text">
+                      <div>
+                      <span>{props.player.name} has no time</span>
+                      <span className="icon">
+                          <i className="fas fa-hourglass"></i>
+                      </span>
+                      <span>left. Unable to build trust.</span>
+                      </div>
+                  </span>
               </section>
 
               <footer className="modal-card-foot" style={{ backgroundColor: "#282C34", border: "none" }}>
-                  <button className="button"
+                  <button className="button is-link"
                   style={{ fontSize: 18 }}
                   onClick={props.deactivateModal}>Cancel</button>
               </footer>
