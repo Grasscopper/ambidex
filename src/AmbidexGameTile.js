@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import AmbidexModalTile from './AmbidexModalTile'
 import { buildTrust } from './myFunctions.js'
 
-//same as the ZeroEscapeIndexTile, but with customizable CSS
 const AmbidexGameTile = (props) => {
   let [modal, setModal] = useState("modal")
 
@@ -57,12 +56,13 @@ const AmbidexGameTile = (props) => {
         </div>
 
         <AmbidexModalTile
+        player={props.player}
         character={props.character}
         modal={modal}
         handleTrust={handleTrust}
         time={props.time}
         deactivateModal={deactivateModal} />
-        
+
     </>
   )
 }

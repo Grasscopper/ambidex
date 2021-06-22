@@ -1,25 +1,56 @@
 import React from 'react'
 import { buildTrust } from './myFunctions.js'
 
-//same as the ZeroEscapeIndexTile, but with customizable CSS
 const AmbidexGamePlayerTile = (props) => {
   let column = "character column "
   column += props.size
 
-  const icons =
-  <span className="icon-text" style={{ padding: 20 }}>
-      <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
-      <i className="fas fa-heart fa-3x"></i>
-      </span>
+  let icons = <div></div>
 
-      <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
-      <i className="fas fa-heart fa-3x"></i>
-      </span>
+  switch (props.time) {
 
-      <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
-      <i className="fas fa-heart fa-3x"></i>
-      </span>
-  </span>
+    case 2:
+        icons =
+        <span className="icon-text" style={{ padding: 20 }}>
+            <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                <i className="fas fa-hourglass fa-3x"></i>
+            </span>
+
+            <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                <i className="fas fa-hourglass fa-3x"></i>
+            </span>
+        </span>
+    break
+
+    case 1:
+        icons =
+        <span className="icon-text" style={{ padding: 20 }}>
+            <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                <i className="fas fa-hourglass fa-3x"></i>
+            </span>
+
+            <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                <i className="far fa-hourglass fa-3x"></i>
+            </span>
+        </span>
+    break
+
+    case 0:
+        icons =
+        <span className="icon-text" style={{ padding: 20 }}>
+            <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                <i className="far fa-hourglass fa-3x"></i>
+            </span>
+
+            <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                <i className="far fa-hourglass fa-3x"></i>
+            </span>
+        </span>
+    break
+
+    default:
+    break
+  }
 
   return (
     <div className={column} style={{  }}>
