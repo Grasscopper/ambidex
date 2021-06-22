@@ -57,10 +57,19 @@ const AmbidexGameContainer = (props) => {
       setItem('teams', newTeams) //new game
       setTeams(newTeams)
     }
+
+    if (getItem('time') === null) {
+      setItem('time', player.time)
+    }
   }, [] )
 
   const sendBuildTrust = (character) => {
+    let newTime = getItem('time')
+    newTime--
+    setItem('time', newTime)
+
     buildTrust(character)
+
     let updateTeams = [...teams]
     for (let a = 0; a < updateTeams.length; a++) {
       for (let b = 0; b < updateTeams[a].length; b++) {
@@ -129,6 +138,7 @@ const AmbidexGameContainer = (props) => {
                 key={team[1].id}
                 character={team[1]}
                 sendBuildTrust={sendBuildTrust}
+                time={getItem('time')}
                 size={"is-half"}
                 color={"column-nest"} />
             </>
@@ -151,6 +161,7 @@ const AmbidexGameContainer = (props) => {
                 key={team[0].id}
                 character={team[0]}
                 sendBuildTrust={sendBuildTrust}
+                time={getItem('time')}
                 size={"is-half"}
                 color={"column-nest"} />
             </>
@@ -169,6 +180,7 @@ const AmbidexGameContainer = (props) => {
             key={team[0].id}
             character={team[0]}
             sendBuildTrust={sendBuildTrust}
+            time={getItem('time')}
             size={"is-half"}
             color={"column-nest"} />
 
@@ -176,6 +188,7 @@ const AmbidexGameContainer = (props) => {
             key={team[1].id}
             character={team[1]}
             sendBuildTrust={sendBuildTrust}
+            time={getItem('time')}
             size={"is-half"}
             color={"column-nest"} />
         </>
@@ -192,6 +205,7 @@ const AmbidexGameContainer = (props) => {
           key={team[0].id}
           character={team[0]}
           sendBuildTrust={sendBuildTrust}
+          time={getItem('time')}
           size={"is-half"}
           color={"column-nest"} />
 

@@ -18,6 +18,7 @@ const AmbidexIndexContainer = (props) => {
   useEffect(() => {
     if (getItem('teams')) {
       localStorage.removeItem('teams')
+      localStorage.removeItem('time')
     }
   }, [])
 
