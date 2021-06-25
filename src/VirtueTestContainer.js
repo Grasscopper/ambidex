@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from 'react'
+import { setItem, getItem } from './myFunctions.js'
 import VirtueTestTile from './VirtueTestTile'
-
+// https://ambidex-api.herokuapp.com
 const VirtueTestContainer = (props) => {
-  const [characters, setCharacters] = useState([])
+  const [ambidex, setAmbidex] = useState(null)
+
   useEffect(() => {
-    fetch("https://ambidex-api.herokuapp.com/characters")
-    .then(response => response.json())
-    .then(body => setCharacters(body))
-    .catch(error => console.error(error))
+    if (getItem('session')) { //return to session
+      const session = getItem('session')
+      fetch(`https://ambidex-api.herokuapp.com/${session}`)
+      .then(response => response.json())
+      .then(body => setAmbidex(body.ambidex))
+      .catch(error => console.error(error))
+    }
+    else { //new session
+      fetch("https://ambidex-api.herokuapp.com")
+      .then(response => response.json())
+      .then((body) => {
+        setItem('session', body.ambidex.key) //so we can return to our Ambidex Game
+        setAmbidex(body.ambidex)
+      })
+      .catch(error => console.error(error))
+    }
   }, [])
 
-  const characterTiles = characters.map((character) => {
-    return (
-      <VirtueTestTile character={character} />
-    )
-  })
+  let characterTiles = <div></div>
+  if (ambidex) {
+    characterTiles =
+    ambidex.games[0].characters.map((character) => {
+      return (
+        <VirtueTestTile character={character} />
+      )
+    })
+  }
 
   return (
     <ul>{characterTiles}</ul>
