@@ -8,13 +8,13 @@ const VirtueTestContainer = (props) => {
   useEffect(() => {
     if (getItem('session')) { //return to session
       const session = getItem('session')
-      fetch(`https://ambidex-api.herokuapp.com/${session}`)
+      fetch(`https://ambidex-api.herokuapp.com/ambidexes/${session}`)
       .then(response => response.json())
       .then(body => setAmbidex(body.ambidex))
       .catch(error => console.error(error))
     }
     else { //new session
-      fetch("https://ambidex-api.herokuapp.com")
+      fetch("https://ambidex-api.herokuapp.com/ambidexes")
       .then(response => response.json())
       .then((body) => {
         setItem('session', body.ambidex.key) //so we can return to our Ambidex Game
