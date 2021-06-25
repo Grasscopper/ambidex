@@ -38,7 +38,8 @@ export let nonary = [
     picture: Ace,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 1,
@@ -47,7 +48,8 @@ export let nonary = [
     picture: Snake,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 2,
@@ -56,7 +58,8 @@ export let nonary = [
     picture: Santa,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 3,
@@ -65,7 +68,8 @@ export let nonary = [
     picture: CloverNonary,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 4,
@@ -74,7 +78,8 @@ export let nonary = [
     picture: JunpeiNonary,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 5,
@@ -83,7 +88,8 @@ export let nonary = [
     picture: June,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 6,
@@ -92,7 +98,8 @@ export let nonary = [
     picture: Seven,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 7,
@@ -101,7 +108,8 @@ export let nonary = [
     picture: Lotus,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 8,
@@ -110,7 +118,8 @@ export let nonary = [
     picture: NinthMan,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   }
 ]
 
@@ -122,7 +131,8 @@ export let virtue = [
     picture: SigmaVirtue,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 10,
@@ -131,7 +141,8 @@ export let virtue = [
     picture: PhiVirtue,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 11,
@@ -140,7 +151,8 @@ export let virtue = [
     picture: Luna,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 12,
@@ -149,7 +161,8 @@ export let virtue = [
     picture: CloverVirtue,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 13,
@@ -158,7 +171,8 @@ export let virtue = [
     picture: Alice,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 14,
@@ -167,7 +181,8 @@ export let virtue = [
     picture: Dio,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 15,
@@ -176,7 +191,8 @@ export let virtue = [
     picture: Tenmyouji,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 16,
@@ -185,7 +201,8 @@ export let virtue = [
     picture: Quark,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 17,
@@ -194,7 +211,8 @@ export let virtue = [
     picture: K,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   }
 ]
 
@@ -206,7 +224,8 @@ export let zero = [
     picture: Carlos,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 19,
@@ -215,7 +234,8 @@ export let zero = [
     picture: Akane,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 20,
@@ -224,7 +244,8 @@ export let zero = [
     picture: JunpeiZero,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 21,
@@ -233,7 +254,8 @@ export let zero = [
     picture: Q,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 22,
@@ -242,7 +264,8 @@ export let zero = [
     picture: Eric,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 23,
@@ -251,7 +274,8 @@ export let zero = [
     picture: Mira,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 24,
@@ -260,7 +284,8 @@ export let zero = [
     picture: Diana,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 25,
@@ -269,7 +294,8 @@ export let zero = [
     picture: SigmaZero,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   },
   {
     id: 26,
@@ -278,6 +304,7 @@ export let zero = [
     picture: PhiZero,
     trust: 50,
     hearts: [ "fas fa-heart", "far fa-heart", "far fa-heart" ],
-    time: 2
+    time: 2,
+    partner: ''
   }
 ]
