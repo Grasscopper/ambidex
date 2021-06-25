@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import ZeroEscapeIndexContainer from './ZeroEscapeIndexContainer'
 import AmbidexIndexContainer from './AmbidexIndexContainer'
 import AmbidexGameContainer from './AmbidexGameContainer'
+import VirtueTestContainer from './VirtueTestContainer'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route exact path="/" component={ZeroEscapeIndexContainer} />
         <Route exact path="/play" component={AmbidexIndexContainer} />
         <Route exact path="/game/:version/:name" component={AmbidexGameContainer} />
+        <Route exact path="/virtue" component={VirtueTestContainer} />
       </Switch>
     </HashRouter>
   </React.StrictMode>,
