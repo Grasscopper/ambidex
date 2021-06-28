@@ -11,6 +11,8 @@ import AmbidexGameContainer from './AmbidexGameContainer'
 import VirtueTestContainer from './VirtueTestContainer'
 import VirtueGameContainer from './VirtueGameContainer'
 
+import BoardGame from './BoardGame'
+
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter basename="nonary">
@@ -20,6 +22,7 @@ ReactDOM.render(
         <Route exact path="/game/:version/:name" component={AmbidexGameContainer} />
         <Route exact path="/virtue" component={VirtueTestContainer} />
         <Route exact path="/virtue/:id" component={VirtueGameContainer} />
+        <Route exact path="/boardgame" component={BoardGame} />
       </Switch>
     </HashRouter>
   </React.StrictMode>,

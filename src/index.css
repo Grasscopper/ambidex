@@ -59,6 +59,10 @@ button:hover {
   color: #3273DC;
 }
 
+.hover-tile:hover {
+  color: #3273DC;
+}
+
 /* .column-nest ORIGINAL BACKGROUND COLOR AND BOX SHADOW */
 /* background-color: #1FD1B2; */
 /* box-shadow: 12px 12px 2px 1px rgba(72, 199, 142, .2); */
