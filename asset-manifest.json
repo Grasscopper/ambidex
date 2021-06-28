@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/ambidex/static/css/main.303e1a62.chunk.css",
-    "main.js": "/ambidex/static/js/main.36a5a3a5.chunk.js",
-    "main.js.map": "/ambidex/static/js/main.36a5a3a5.chunk.js.map",
-    "runtime-main.js": "/ambidex/static/js/runtime-main.49c6a4e7.js",
-    "runtime-main.js.map": "/ambidex/static/js/runtime-main.49c6a4e7.js.map",
-    "static/js/2.b4f139da.chunk.js": "/ambidex/static/js/2.b4f139da.chunk.js",
-    "static/js/2.b4f139da.chunk.js.map": "/ambidex/static/js/2.b4f139da.chunk.js.map",
-    "static/js/3.7dcf95d3.chunk.js": "/ambidex/static/js/3.7dcf95d3.chunk.js",
-    "static/js/3.7dcf95d3.chunk.js.map": "/ambidex/static/js/3.7dcf95d3.chunk.js.map",
+    "main.css": "/ambidex/static/css/main.a1495137.chunk.css",
+    "main.js": "/ambidex/static/js/main.1cef3e61.chunk.js",
+    "main.js.map": "/ambidex/static/js/main.1cef3e61.chunk.js.map",
+    "runtime-main.js": "/ambidex/static/js/runtime-main.306b88d0.js",
+    "runtime-main.js.map": "/ambidex/static/js/runtime-main.306b88d0.js.map",
+    "static/js/2.ebb6b6a4.chunk.js": "/ambidex/static/js/2.ebb6b6a4.chunk.js",
+    "static/js/2.ebb6b6a4.chunk.js.map": "/ambidex/static/js/2.ebb6b6a4.chunk.js.map",
+    "static/js/3.1d65df9b.chunk.js": "/ambidex/static/js/3.1d65df9b.chunk.js",
+    "static/js/3.1d65df9b.chunk.js.map": "/ambidex/static/js/3.1d65df9b.chunk.js.map",
     "index.html": "/ambidex/index.html",
-    "static/css/main.303e1a62.chunk.css.map": "/ambidex/static/css/main.303e1a62.chunk.css.map",
-    "static/js/2.b4f139da.chunk.js.LICENSE.txt": "/ambidex/static/js/2.b4f139da.chunk.js.LICENSE.txt",
+    "static/css/main.a1495137.chunk.css.map": "/ambidex/static/css/main.a1495137.chunk.css.map",
+    "static/js/2.ebb6b6a4.chunk.js.LICENSE.txt": "/ambidex/static/js/2.ebb6b6a4.chunk.js.LICENSE.txt",
     "static/media/999 Cast.2ea5518a.png": "/ambidex/static/media/999 Cast.2ea5518a.png",
     "static/media/999 Logo.ffa45f93.png": "/ambidex/static/media/999 Logo.ffa45f93.png",
     "static/media/999 Section Art.70d29bf0.jpg": "/ambidex/static/media/999 Section Art.70d29bf0.jpg",
@@ -47,9 +47,9 @@
     "static/media/ZTD Section Art.b26b6374.jpg": "/ambidex/static/media/ZTD Section Art.b26b6374.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.49c6a4e7.js",
-    "static/js/2.b4f139da.chunk.js",
-    "static/css/main.303e1a62.chunk.css",
-    "static/js/main.36a5a3a5.chunk.js"
+    "static/js/runtime-main.306b88d0.js",
+    "static/js/2.ebb6b6a4.chunk.js",
+    "static/css/main.a1495137.chunk.css",
+    "static/js/main.1cef3e61.chunk.js"
   ]
 }
