@@ -5,14 +5,10 @@ import DailyLifeTile from './DailyLifeTile'
 import { shuffle } from './myFunctions'
 
 const DailyLife = (props) => {
-  let teamNames =
-  ['RED',
-  'GREEN',
-  'BLUE',
-  'MAGENTA',
-  'YELLOW',
-  'CYAN']
-  shuffle(teamNames)
+  const handlePhase = (event) => {
+    event.preventDefault()
+    props.endPhase()
+  }
 
   let index = 0
   let newTiles = props.teams.map((team) => {
@@ -23,7 +19,7 @@ const DailyLife = (props) => {
     if (index === 2) header = <div className="column is-full" style={{ marginTop: 20 }}><h2>Opponents</h2></div>
 
     let tile = <div></div>
-    let teamName = teamNames.pop()
+    let teamName = props.teamNames[index - 1]
 
     if (team.length === 2) {
       tile =
@@ -59,9 +55,14 @@ const DailyLife = (props) => {
       <div className="column is-full">
         <Link to="/">
           <button className="button is-link">
-            <strong>Back</strong>
+            Back
           </button>
         </Link>
+      </div>
+      <div className="column is-4 is-offset-4">
+      <button className="button is-primary is-large" style={{ width: "100%" }} onClick={handlePhase}>
+        <strong>Enter AB Room</strong>
+      </button>
       </div>
       {newTiles}
       </div>

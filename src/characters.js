@@ -28,8 +28,6 @@ import PhiZero from './Images/ZTD/Characters/Phi.jpg'
 import Q from './Images/ZTD/Characters/Q.jpg'
 import SigmaZero from './Images/ZTD/Characters/Sigma.jpg'
 
-//exporting nonary, virtue, zero
-
 export let nonary = [
   {
     id: 0,

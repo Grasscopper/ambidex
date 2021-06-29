@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import SetupGameTile from './SetupGameTile'
 
 const SetupGame = (props) => {
-  const [selectedGames, setSelectedGames] = useState( [true, false, false] )
+  const [selectedGames, setSelectedGames] = useState( [false, true, false] )
 
   let gameOne = "button is-medium is-primary"
   let gameTwo = "button is-medium"

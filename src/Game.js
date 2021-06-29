@@ -1,14 +1,21 @@
 import { INVALID_MOVE } from 'boardgame.io/core'
 import { nonary, virtue, zero } from './characters.js'
-import { shuffle } from './myFunctions.js'
+import { shuffle, styleHearts } from './myFunctions.js'
 
 export const Game = {
   setup: () => (
     {
       player: {}, //your player
-      // playerTeam: [], //your team which may be SOLO or a PAIR with another player
-      players: nonary, //all 9 players
-      teams: [ [], [], [], [], [], [] ], //all 6 teams INCLUDING your team
+      sideA: [ [], [], [] ], //sideA[1] plays against sideB[1]
+      sideB: [ [], [], [] ],
+      players: virtue, //all 9 players
+      teams: [], //all 6 teams
+      teamNames: shuffle(  ['RED',
+        'GREEN',
+        'BLUE',
+        'MAGENTA',
+        'YELLOW',
+        'CYAN']),
       nonary: nonary,
       virtue: virtue,
       zero: zero
@@ -41,22 +48,26 @@ export const Game = {
     },
 
     buildTrust: (G, ctx, character) => {
-      G.teams = G.teams.map((team) => {
-        return (
-          team.map((currentCharacter) => {
-            let trust = currentCharacter.trust
-            if (character.id === currentCharacter.id) {
-              trust += 20
-            }
-            return (
-              {
-                ...currentCharacter,
-                trust: trust
+      if (G.player.time > 0) {
+        G.teams = G.teams.map((team) => {
+          return (
+            team.map((currentCharacter) => {
+              let trust = currentCharacter.trust
+              if (character.id === currentCharacter.id) {
+                trust += 20
               }
-            )
-          })
-        )
-      })
+              return (
+                {
+                  ...currentCharacter,
+                  trust: trust,
+                  hearts: styleHearts(trust)
+                }
+              )
+            })
+          )
+        }) //end map function
+        G.player.time--
+      } //end if statement
     } //end buildTrust
   }, //end moves
 
@@ -86,14 +97,28 @@ export const Game = {
               }
           }
           //if the player is the second element in a PAIR, make the player the first element
-          // let playerTeam = teams[0]
-          // if (playerTeam.length === 2 && playerTeam[1].id === G.player.id) {
-          //   [ playerTeam[0], playerTeam[1] ] = [ playerTeam[1], playerTeam[0] ]
-          // }
-          //
+          let playerTeam = teams[0]
+          if (playerTeam.length === 2 && playerTeam[1].id === G.player.id) {
+            [ playerTeam[0], playerTeam[1] ] = [ playerTeam[1], playerTeam[0] ]
+          }
+
           // G.playerTeam = teams[0]
           G.teams = teams
-        } //end onBegin
-      } //end dailyLife
+        }, //end onBegin
+        next: 'deadlyLife'
+      }, //end dailyLife
+    deadlyLife: {
+      onBegin: (G, ctx) => {
+        let match = shuffle( [1, 2, 3, 4, 5] )
+        G.sideA[0] = G.teams[0] //G.teams[0] is always the player's team
+        G.sideB[0] = G.teams[match[0]]
+
+        G.sideA[1] = G.teams[match[1]]
+        G.sideB[1] = G.teams[match[2]]
+
+        G.sideA[2] = G.teams[match[3]]
+        G.sideB[2] = G.teams[match[4]]
+      }
+    } //end deadlyLife
     } //end phases
   } //end Game

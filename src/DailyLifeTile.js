@@ -48,16 +48,65 @@ const DailyLifeTile = (props) => {
       fontWeight: "bold",
       backgroundColor: "#1FD1B2",
       marginTop: 10 }}>PLAYER</p>
-    icons =
-    <span className="icon-text" style={{ padding: 20 }}>
-        <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
-            <i className="fas fa-hourglass fa-3x"></i>
-        </span>
 
-        <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
-            <i className="fas fa-hourglass fa-3x"></i>
-        </span>
-    </span>
+    switch (props.player.time) {
+      case 2:
+          icons =
+          <span className="icon-text" style={{ padding: 20 }}>
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="fas fa-hourglass fa-3x"></i>
+              </span>
+
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="fas fa-hourglass fa-3x"></i>
+              </span>
+          </span>
+
+          break
+
+      case 1:
+          icons =
+          <span className="icon-text" style={{ padding: 20 }}>
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="fas fa-hourglass fa-3x"></i>
+              </span>
+
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="far fa-hourglass fa-3x"></i>
+              </span>
+          </span>
+
+          break
+
+      case 0:
+          icons =
+          <span className="icon-text" style={{ padding: 20 }}>
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="far fa-hourglass fa-3x"></i>
+              </span>
+
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="far fa-hourglass fa-3x"></i>
+              </span>
+          </span>
+
+          break
+
+      default:
+          icons =
+          <span className="icon-text" style={{ padding: 20 }}>
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="fas fa-hourglass fa-3x"></i>
+              </span>
+
+              <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
+                  <i className="fas fa-hourglass fa-3x"></i>
+              </span>
+          </span>
+
+          break
+    }
+
     selectableTile = { height: "100%" }
   }
 
@@ -91,6 +140,7 @@ const DailyLifeTile = (props) => {
     {tile}
     <DailyLifeModal
     modal={modal}
+    player={props.player}
     character={props.character}
     buildTrust={props.buildTrust}
     deactivateModal={deactivateModal} />

@@ -2,11 +2,12 @@ import React from 'react'
 
 const DailyLifeModal = (props) => {
   let trustOutcome = props.character.trust + 20
-  let timeOutcome = props.character.time - 1
+  let timeOutcome = props.player.time - 1
 
   const handleTrust = (event) => {
     event.preventDefault()
     props.buildTrust(props.character)
+    props.deactivateModal(event)
   }
 
   let modal =
@@ -43,7 +44,7 @@ const DailyLifeModal = (props) => {
                           </span>
 
                           <span className="icon-text" style={{ color: "#F14668", paddingLeft: 20, paddingRight: 20 }}>
-                              <span style={{ fontWeight: "bold" }}>TIME {props.time}</span>
+                              <span style={{ fontWeight: "bold" }}>TIME {props.player.time}</span>
 
                               <span className="icon">
                                 <i className="fas fa-hourglass"></i>
@@ -80,7 +81,7 @@ const DailyLifeModal = (props) => {
       </div>
   </div>
 
-  if (props.character.time < 1) {
+  if (props.player.time < 1) {
     modal =
     <div className={props.modal}>
         <div className="modal-background" />
