@@ -1,9 +1,10 @@
 import React from 'react'
 
-const BoardTile = (props) => {
+const SetupGameTile = (props) => {
   const handlePlayer = (event) => {
     event.preventDefault()
     props.selectPlayer(props.character)
+    props.endPhase()
   }
 
   return (
@@ -16,4 +17,4 @@ const BoardTile = (props) => {
   )
 }
 
-export default BoardTile
+export default SetupGameTile
