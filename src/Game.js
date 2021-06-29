@@ -1,11 +1,14 @@
 import { INVALID_MOVE } from 'boardgame.io/core'
 import { nonary, virtue, zero } from './characters.js'
+import { shuffle } from './myFunctions.js'
 
 export const Game = {
   setup: () => (
     {
-      player: {},
-      players: nonary,
+      player: {}, //your player
+      // playerTeam: [], //your team which may be SOLO or a PAIR with another player
+      players: nonary, //all 9 players
+      teams: [ [], [], [], [], [], [] ], //all 6 teams INCLUDING your team
       nonary: nonary,
       virtue: virtue,
       zero: zero
@@ -20,29 +23,77 @@ export const Game = {
     selectGame: (G, ctx, id) => {
       switch (id) {
         case 'nonary':
-        G.players = G.nonary
-        break
+          G.players = G.nonary
+          break
         case 'virtue':
-        G.players = G.virtue
-        break
+          G.players = G.virtue
+          break
         case 'zero':
-        G.players = G.zero
-        break
+          G.players = G.zero
+          break
         default:
-        G.players = G.nonary
-        break
+          G.players = G.nonary
+          break
       }
     },
     selectPlayer: (G, ctx, player) => {
       G.player = player
-    }
-  },
+    },
+
+    buildTrust: (G, ctx, character) => {
+      G.teams = G.teams.map((team) => {
+        return (
+          team.map((currentCharacter) => {
+            let trust = currentCharacter.trust
+            if (character.id === currentCharacter.id) {
+              trust += 20
+            }
+            return (
+              {
+                ...currentCharacter,
+                trust: trust
+              }
+            )
+          })
+        )
+      })
+    } //end buildTrust
+  }, //end moves
 
   phases: {
-    phaseZero: { //phase name
-      start: true //begin in this phase
-    }
-  }
+    setupGame: { //phase name
+      start: true, //begin in this phase
+      next: 'dailyLife'
+    },
+    dailyLife: {
+      onBegin: (G, ctx) => {
+        let shuffledPlayers = shuffle(G.players) //randomize the 9 characters
+        let teams = [] //place shuffled characters here to assign teams
 
+          for (let bracelet = 0; bracelet < 6; bracelet++) { //bracelet is each of the 6 teams
+              if (bracelet === 0 || bracelet % 2 === 0) { //an even index is a PAIR
+                let newTeam = []
+                newTeam.push(shuffledPlayers.pop())
+                newTeam.push(shuffledPlayers.pop())
 
-}
+                newTeam.find(player => player.id === G.player.id) ? teams.unshift(newTeam) : teams.push(newTeam)
+              }
+              else { //an odd index is a SOLO
+                let newTeam = []
+                newTeam.push(shuffledPlayers.pop())
+
+                newTeam.find(player => player.id === G.player.id) ? teams.unshift(newTeam) : teams.push(newTeam)
+              }
+          }
+          //if the player is the second element in a PAIR, make the player the first element
+          // let playerTeam = teams[0]
+          // if (playerTeam.length === 2 && playerTeam[1].id === G.player.id) {
+          //   [ playerTeam[0], playerTeam[1] ] = [ playerTeam[1], playerTeam[0] ]
+          // }
+          //
+          // G.playerTeam = teams[0]
+          G.teams = teams
+        } //end onBegin
+      } //end dailyLife
+    } //end phases
+  } //end Game
