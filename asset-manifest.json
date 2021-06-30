@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ambidex/static/css/main.dd16c796.chunk.css",
-    "main.js": "/ambidex/static/js/main.e660a0f8.chunk.js",
-    "main.js.map": "/ambidex/static/js/main.e660a0f8.chunk.js.map",
+    "main.css": "/ambidex/static/css/main.09741644.chunk.css",
+    "main.js": "/ambidex/static/js/main.a059ddb1.chunk.js",
+    "main.js.map": "/ambidex/static/js/main.a059ddb1.chunk.js.map",
     "runtime-main.js": "/ambidex/static/js/runtime-main.ed0602f1.js",
     "runtime-main.js.map": "/ambidex/static/js/runtime-main.ed0602f1.js.map",
     "static/js/2.afa60235.chunk.js": "/ambidex/static/js/2.afa60235.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.58dbae07.chunk.js": "/ambidex/static/js/3.58dbae07.chunk.js",
     "static/js/3.58dbae07.chunk.js.map": "/ambidex/static/js/3.58dbae07.chunk.js.map",
     "index.html": "/ambidex/index.html",
-    "static/css/main.dd16c796.chunk.css.map": "/ambidex/static/css/main.dd16c796.chunk.css.map",
+    "static/css/main.09741644.chunk.css.map": "/ambidex/static/css/main.09741644.chunk.css.map",
     "static/js/2.afa60235.chunk.js.LICENSE.txt": "/ambidex/static/js/2.afa60235.chunk.js.LICENSE.txt",
     "static/media/999 Cast.2ea5518a.png": "/ambidex/static/media/999 Cast.2ea5518a.png",
     "static/media/999 Logo.ffa45f93.png": "/ambidex/static/media/999 Logo.ffa45f93.png",
@@ -49,7 +49,7 @@
   "entrypoints": [
     "static/js/runtime-main.ed0602f1.js",
     "static/js/2.afa60235.chunk.js",
-    "static/css/main.dd16c796.chunk.css",
-    "static/js/main.e660a0f8.chunk.js"
+    "static/css/main.09741644.chunk.css",
+    "static/js/main.a059ddb1.chunk.js"
   ]
 }
