@@ -47,6 +47,23 @@ const DailyLifeTile = (props) => {
       </span>
   </span>
 
+  if (hearts[0] === "fas fa-heart-broken") { //same as regular icons, but change the color of the hearts
+    icons =
+    <span className="icon-text" style={{ padding: 20 }}>
+        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "white" }}>
+        <i className={`${hearts[0]} fa-3x`}></i>
+        </span>
+
+        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "white" }}>
+        <i className={`${hearts[1]} fa-3x`}></i>
+        </span>
+
+        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "white" }}>
+        <i className={`${hearts[2]} fa-3x`}></i>
+        </span>
+    </span>
+  }
+
   if (props.player.name === props.character.name) {
     color = "player-nest"
     skill =
