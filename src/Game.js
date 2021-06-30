@@ -1,6 +1,6 @@
 import { INVALID_MOVE } from 'boardgame.io/core'
 import { nonary, virtue, zero } from './characters.js'
-import { shuffle, styleHearts } from './myFunctions.js'
+import { shuffle, styleHearts, getRandomInt } from './myFunctions.js'
 
 export const Game = {
   setup: () => (
@@ -10,12 +10,14 @@ export const Game = {
       sideB: [ [], [], [] ],
       players: virtue, //all 9 players
       teams: [], //all 6 teams
-      teamNames: shuffle(  ['RED',
+      teamNames: shuffle(
+        ['RED',
         'GREEN',
         'BLUE',
         'MAGENTA',
         'YELLOW',
-        'CYAN']),
+        'CYAN' ]
+      ),
       nonary: nonary,
       virtue: virtue,
       zero: zero
@@ -68,15 +70,100 @@ export const Game = {
         }) //end map function
         G.player.time--
       } //end if statement
-    } //end buildTrust
+    }, //end buildTrust
+    ally: (G, ctx, trust) => { //player only; AI opponents have a constant 50% chance to Ally
+      let betray = getRandomInt(1, 101)
+      if (trust > betray) { //opponent allied too
+        G.player = {
+          ...G.player,
+          bracelet: G.player.bracelet + 2
+        }
+
+        G.sideA[0] = G.sideA[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
+        })
+
+        G.sideB[0] = G.sideB[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
+        })
+      }
+      else {
+        G.player = {
+          ...G.player,
+          bracelet: G.player.bracelet - 2
+        }
+
+        G.sideA[0] = G.sideA[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet - 2 } )
+        })
+
+        G.sideB[0] = G.sideB[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 3 } )
+        })
+      }
+    }, //end ally move
+    ab: (G, ctx) => { //play the rest of the game for the AI
+      const trust = 50
+      
+      for (let team = 1; team < 3; team++) {
+          let betray = getRandomInt(1, 101)
+          let teamOneAlly = false
+          if (trust > betray) teamOneAlly = true
+
+          betray = getRandomInt(1, 101)
+          let teamTwoAlly = false
+          if (trust > betray) teamTwoAlly = true
+
+          if (teamOneAlly && teamTwoAlly) {
+            G.sideA[team] = G.sideA[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
+            })
+
+            G.sideB[team] = G.sideB[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
+            })
+          } //end both ally
+
+          else if (teamOneAlly && !teamTwoAlly) {
+            G.sideA[team] = G.sideA[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet - 2 } )
+            })
+
+            G.sideB[team] = G.sideB[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 3 } )
+            })
+          } //end one betrays the other
+
+          else if (!teamOneAlly && teamTwoAlly) {
+            G.sideA[team] = G.sideA[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 3 } )
+            })
+
+            G.sideB[team] = G.sideB[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet - 2 } )
+            })
+          } //end one betrays the other
+
+          else if (!teamOneAlly && !teamTwoAlly) {
+            G.sideA[team] = G.sideA[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 0 } )
+            })
+
+            G.sideB[team] = G.sideB[team].map((currentCharacter) => {
+              return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 0 } )
+            })
+          } //end both betray
+      } //end for loop
+
+    }//end ab move
   }, //end moves
 
   phases: {
-    setupGame: { //phase name
+    setupGame: { //we have G.players
       start: true, //begin in this phase
       next: 'dailyLife'
     },
-    dailyLife: {
+    dailyLife: { //dump G.players into G.teams
       onBegin: (G, ctx) => {
         let shuffledPlayers = shuffle(G.players) //randomize the 9 characters
         let teams = [] //place shuffled characters here to assign teams
@@ -107,18 +194,44 @@ export const Game = {
         }, //end onBegin
         next: 'deadlyLife'
       }, //end dailyLife
-    deadlyLife: {
+    deadlyLife: { //dump G.teams into G.side[A] and G.side[B]
       onBegin: (G, ctx) => {
-        let match = shuffle( [1, 2, 3, 4, 5] )
-        G.sideA[0] = G.teams[0] //G.teams[0] is always the player's team
-        G.sideB[0] = G.teams[match[0]]
+        G.teams[0][0] = { //first of all, the player is being stylized for the game
+          ...G.teams[0][0],
+          trust: 100,
+          hearts: styleHearts(90)
+        }
 
-        G.sideA[1] = G.teams[match[1]]
-        G.sideB[1] = G.teams[match[2]]
+        G.sideA[0] = G.teams.shift() //second of all, make sure G.side[0] is the player's team
+        let shuffledTeams = shuffle(G.teams) //5 teams left
 
-        G.sideA[2] = G.teams[match[3]]
-        G.sideB[2] = G.teams[match[4]]
+        G.sideB[0] = G.teams.pop()
+
+        G.sideA[1] = G.teams.pop()
+        G.sideB[1] = G.teams.pop()
+
+        G.sideA[2] = G.teams.pop()
+        G.sideB[2] = G.teams.pop()
       }
+      // onBegin: (G, ctx) => {
+      //   let match = shuffle( [1, 2, 3, 4, 5] )
+      //   G.teams[0][0] = {
+      //     ...G.teams[0][0],
+      //     trust: 100,
+      //     hearts: styleHearts(90)
+      //   }
+      //
+      //   //the G.sides are copies of the teams
+      //   //changing the G.sides doesn't change the G.teams
+      //   G.sideA[0] = G.teams[0] //G.teams[0] is always the player's team
+      //   G.sideB[0] = G.teams[match[0]]
+      //
+      //   G.sideA[1] = G.teams[match[1]]
+      //   G.sideB[1] = G.teams[match[2]]
+      //
+      //   G.sideA[2] = G.teams[match[3]]
+      //   G.sideB[2] = G.teams[match[4]]
+      // }
     } //end deadlyLife
     } //end phases
   } //end Game
