@@ -10,6 +10,17 @@ export let shuffle = (array) => {
   return array
 }
 
+export let styleHearts = (trust) => {
+  switch (trust) {
+    case 70:
+      return [ "fas fa-heart", "fas fa-heart", "far fa-heart" ]
+    case 90:
+      return [ "fas fa-heart", "fas fa-heart", "fas fa-heart" ]
+    default:
+      return [ "fas fa-heart", "far fa-heart", "far fa-heart" ]
+  }
+}
+
 export let setItem = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value))
 }
