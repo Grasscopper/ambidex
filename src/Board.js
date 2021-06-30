@@ -16,7 +16,7 @@ const Board = (props) => {
   }
   else if (props.ctx.phase === 'deadlyLife') {
     phase =
-    <DeadlyLife game={props.G} />
+    <DeadlyLife game={props.G} moves={props.moves} />
   }
 
   return (

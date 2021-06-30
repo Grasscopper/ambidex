@@ -67,7 +67,7 @@ const SetupGame = (props) => {
         <div className="column is-full">
           <Link to="/">
             <button className="button is-link">
-              <strong>Back</strong>
+              Back
             </button>
           </Link>
         </div>
