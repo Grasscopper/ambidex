@@ -59,6 +59,11 @@ const DailyLife = (props) => {
           </button>
         </Link>
       </div>
+
+      <div className="character column is-full">
+      <h2>{props.result}</h2>
+      </div>
+
       <div className="column is-4 is-offset-4">
       <button className="button is-primary is-large" style={{ width: "100%" }} onClick={handlePhase}>
         <strong>Enter AB Room</strong>

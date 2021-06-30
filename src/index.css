@@ -77,7 +77,9 @@ button:hover {
 .rival-nest {
   background-color: #F14668;
   border-radius: 2%;
-  box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2);
+  box-shadow: 12px 12px 2px 1px rgba(176, 46, 12, .2);
+  /* original rival nest box shadow */
+  /* box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2); */
   height: 75%;
 }
 

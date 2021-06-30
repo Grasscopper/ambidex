@@ -6,6 +6,10 @@ export const Game = {
   setup: () => (
     {
       player: {}, //your player
+      resetTime: 2,
+      result: {
+        message: ""
+      },
       sideA: [ [], [], [] ], //sideA[1] plays against sideB[1]
       sideB: [ [], [], [] ],
       players: virtue, //all 9 players
@@ -47,6 +51,7 @@ export const Game = {
     },
     selectPlayer: (G, ctx, player) => {
       G.player = player
+      G.resetTime = player.time
     },
 
     buildTrust: (G, ctx, character) => {
@@ -86,6 +91,10 @@ export const Game = {
         G.sideB[0] = G.sideB[0].map((currentCharacter) => {
           return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
         })
+
+        G.result = {
+          message: "Player: ALLY, Rival: ALLY"
+        }
       }
       else {
         G.player = {
@@ -100,11 +109,54 @@ export const Game = {
         G.sideB[0] = G.sideB[0].map((currentCharacter) => {
           return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 3 } )
         })
+
+        G.result = {
+          message: "Player: ALLY, Rival: BETRAY"
+        }
       }
     }, //end ally move
+    betray: (G, ctx, trust) => { //player only; AI opponents have a constant 50% chance to Ally
+      let betray = getRandomInt(1, 101)
+      if (trust > betray) { //opponent allied while you betrayed them :(
+        G.player = {
+          ...G.player,
+          bracelet: G.player.bracelet + 3
+        }
+
+        G.sideA[0] = G.sideA[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 3 } )
+        })
+
+        G.sideB[0] = G.sideB[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet - 2 } )
+        })
+
+        G.result = {
+          message: "Player: BETRAY, Rival: ALLY"
+        }
+      }
+      else {
+        G.player = {
+          ...G.player,
+          bracelet: G.player.bracelet + 0
+        }
+
+        G.sideA[0] = G.sideA[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 0 } )
+        })
+
+        G.sideB[0] = G.sideB[0].map((currentCharacter) => {
+          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 0 } )
+        })
+
+        G.result = {
+          message: "Player: BETRAY, Rival: BETRAY"
+        }
+      }
+    }, //end betray move
     ab: (G, ctx) => { //play the rest of the game for the AI
       const trust = 50
-      
+
       for (let team = 1; team < 3; team++) {
           let betray = getRandomInt(1, 101)
           let teamOneAlly = false
@@ -155,7 +207,36 @@ export const Game = {
           } //end both betray
       } //end for loop
 
-    }//end ab move
+    }, //end ab move
+
+    //setupGame phase: players,
+    //dailyLife phase: players -> teams,
+    //deadlyLife: teams -> sideA and sideB
+    //we need to repopulate G.players because deadlyLife -> dailyLife
+    //G.players need to be a 1D array of Objects
+    repopulate: (G, ctx) => {
+      G.player = {
+        ...G.player,
+        time: G.resetTime
+      }
+      let newPlayers = []
+
+      for (let team = 0; team < G.sideA.length; team++) {
+        for (let player = 0; player < G.sideA[team].length; player++) {
+          newPlayers.push(G.sideA[team][player])
+        }
+      }
+      G.sideA = [ [], [], [] ]
+
+      for (let team = 0; team < G.sideB.length; team++) {
+        for (let player = 0; player < G.sideB[team].length; player++) {
+          newPlayers.push(G.sideB[team][player])
+        }
+      }
+      G.sideB = [ [], [], [] ]
+
+      G.players = newPlayers
+    }
   }, //end moves
 
   phases: {
@@ -212,7 +293,8 @@ export const Game = {
 
         G.sideA[2] = G.teams.pop()
         G.sideB[2] = G.teams.pop()
-      }
+      },
+      next: 'dailyLife'
       // onBegin: (G, ctx) => {
       //   let match = shuffle( [1, 2, 3, 4, 5] )
       //   G.teams[0][0] = {

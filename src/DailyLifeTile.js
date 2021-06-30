@@ -17,10 +17,16 @@ const DailyLifeTile = (props) => {
   let color = "column-nest"
 
   let skill =
+  <>
+  <p style={{ fontSize: 28,
+  fontWeight: "bold",
+  backgroundColor: "#48C775",
+  marginTop: 10 }}>BRACELET {props.character.bracelet}</p>
   <p style={{ fontSize: 28,
   fontWeight: "bold",
   backgroundColor: "#1FD1B2",
   marginTop: 10 }}>TRUST {props.character.trust}</p>
+  </>
 
   let selectableTile = { height: "100%", cursor: "pointer" }
 
@@ -44,10 +50,16 @@ const DailyLifeTile = (props) => {
   if (props.player.name === props.character.name) {
     color = "player-nest"
     skill =
+    <>
+    <p style={{ fontSize: 28,
+    fontWeight: "bold",
+    backgroundColor: "#48C775",
+    marginTop: 10 }}>BRACELET {props.character.bracelet}</p>
     <p style={{ fontSize: 28,
       fontWeight: "bold",
       backgroundColor: "#1FD1B2",
       marginTop: 10 }}>PLAYER</p>
+    </>
 
     switch (props.player.time) {
       case 2:
