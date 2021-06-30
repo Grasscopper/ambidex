@@ -82,7 +82,7 @@ const DailyLifeModal = (props) => {
       </div>
   </div>
 
-  if (props.character.trust === 90) {
+  if (props.character.hearts[0] === "fas fa-heart-broken") {
     modal =
     <div className={props.modal}>
         <div className="modal-background" />
@@ -96,9 +96,9 @@ const DailyLifeModal = (props) => {
                       <div>
                       <span>{props.character.name}'s Trust</span>
                       <span className="icon">
-                          <i className="fas fa-heart"></i>
+                          <i className="fas fa-heart-broken"></i>
                       </span>
-                      <span>for you is full. Unable to build more trust.</span>
+                      <span>for you is forever broken. Unable to build trust.</span>
                       </div>
                   </span>
               </section>
@@ -129,6 +129,36 @@ const DailyLifeModal = (props) => {
                           <i className="fas fa-hourglass"></i>
                       </span>
                       <span>left. Unable to build trust.</span>
+                      </div>
+                  </span>
+              </section>
+
+              <footer className="modal-card-foot" style={{ backgroundColor: "#282C34", border: "none" }}>
+                  <button className="button is-link"
+                  style={{ fontSize: 18 }}
+                  onClick={props.deactivateModal}>Cancel</button>
+              </footer>
+        </div>
+    </div>
+  }
+
+  if (props.character.trust === 90) {
+    modal =
+    <div className={props.modal}>
+        <div className="modal-background" />
+        <div className="modal-card" style={{ border: "solid" }}>
+              <header className="modal-card-head" style={{ backgroundColor: "#282C34", border: "none" }}>
+                  <p className="modal-card-title" style={{ color: "white", fontSize: 30 }}>Build Trust</p>
+              </header>
+
+              <section className="modal-card-body" style={{ backgroundColor: "#F14668", fontSize: 24 }}>
+                  <span className="icon-text">
+                      <div>
+                      <span>{props.character.name}'s Trust</span>
+                      <span className="icon">
+                          <i className="fas fa-heart"></i>
+                      </span>
+                      <span>for you is full. Unable to build more trust.</span>
                       </div>
                   </span>
               </section>

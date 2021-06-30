@@ -116,6 +116,7 @@ export const Game = {
       }
     }, //end ally move
     betray: (G, ctx, trust) => { //player only; AI opponents have a constant 50% chance to Ally
+      let brokenHearts = [ "fas fa-heart-broken", "fas fa-heart-broken", "fas fa-heart-broken" ]
       let betray = getRandomInt(1, 101)
       if (trust > betray) { //opponent allied while you betrayed them :(
         G.player = {
@@ -128,14 +129,19 @@ export const Game = {
         })
 
         G.sideB[0] = G.sideB[0].map((currentCharacter) => {
-          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet - 2 } )
+          return ({
+            ...currentCharacter,
+            bracelet: currentCharacter.bracelet - 2,
+            hearts: brokenHearts,
+            trust: 10
+          })
         })
 
         G.result = {
           message: "Player: BETRAY, Rival: ALLY"
         }
       }
-      else {
+      else { //you both betray each other
         G.player = {
           ...G.player,
           bracelet: G.player.bracelet + 0
@@ -146,7 +152,12 @@ export const Game = {
         })
 
         G.sideB[0] = G.sideB[0].map((currentCharacter) => {
-          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 0 } )
+          return ({
+            ...currentCharacter,
+            bracelet: currentCharacter.bracelet + 0,
+            hearts: brokenHearts,
+            trust: 10
+          })
         })
 
         G.result = {
