@@ -8,7 +8,9 @@ const Board = (props) => {
 
   if (props.ctx.phase === 'dailyLife') {
     phase =
-    <DailyLife player={props.G.player}
+    <DailyLife
+    result={props.G.result.message}
+    player={props.G.player}
     teams={props.G.teams}
     buildTrust={props.moves.buildTrust}
     teamNames={props.G.teamNames}
@@ -16,7 +18,7 @@ const Board = (props) => {
   }
   else if (props.ctx.phase === 'deadlyLife') {
     phase =
-    <DeadlyLife game={props.G} moves={props.moves} />
+    <DeadlyLife game={props.G} moves={props.moves} events={props.events} />
   }
 
   return (
