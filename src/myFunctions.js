@@ -12,6 +12,8 @@ export let shuffle = (array) => {
 
 export let styleHearts = (trust) => {
   switch (trust) {
+    case 10:
+      return [ "fas fa-heart-broken", "fas fa-heart-broken", "fas fa-heart-broken" ]
     case 70:
       return [ "fas fa-heart", "fas fa-heart", "far fa-heart" ]
     case 90:

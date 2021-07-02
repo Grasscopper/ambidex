@@ -58,7 +58,7 @@ const ZeroEscapeIndexContainer = (props) => {
           <p className="subtitle has-text-white">
           A visual novel adventure series
           </p>
-          <Link to="/play">
+          <Link to="/boardgame">
           <button className="button is-primary">
             <strong>Play Ambidex Game</strong>
           </button>

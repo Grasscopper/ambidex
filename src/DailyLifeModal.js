@@ -82,7 +82,7 @@ const DailyLifeModal = (props) => {
       </div>
   </div>
 
-  if (props.character.hearts[0] === "fas fa-heart-broken") {
+  if (props.character.trust === 10) { //Trust Broken
     modal =
     <div className={props.modal}>
         <div className="modal-background" />
@@ -112,7 +112,7 @@ const DailyLifeModal = (props) => {
     </div>
   }
 
-  if (props.player.time < 1) {
+  else if (props.player.time < 1) {
     modal =
     <div className={props.modal}>
         <div className="modal-background" />

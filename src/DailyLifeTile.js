@@ -47,18 +47,34 @@ const DailyLifeTile = (props) => {
       </span>
   </span>
 
+
+  //Danganronpa Blood: DC32C6
   if (hearts[0] === "fas fa-heart-broken") { //same as regular icons, but change the color of the hearts
+    skill =
+    <>
+    <p style={{ fontSize: 28,
+    fontWeight: "bold",
+    backgroundColor: "#48C775",
+    marginTop: 10 }}>BRACELET {props.character.bracelet}</p>
+
+    <p style={{ fontSize: 28,
+    fontWeight: "bold",
+    backgroundColor: "#1FD1B2",
+    color: "#36454F",
+    marginTop: 10 }}>TRUST BROKEN</p>
+    </>
+
     icons =
     <span className="icon-text" style={{ padding: 20 }}>
-        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "white" }}>
+        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "#36454F" }}>
         <i className={`${hearts[0]} fa-3x`}></i>
         </span>
 
-        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "white" }}>
+        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "#36454F" }}>
         <i className={`${hearts[1]} fa-3x`}></i>
         </span>
 
-        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "white" }}>
+        <span className="icon" style={{ marginLeft: 15, marginRight: 15, color: "#36454F" }}>
         <i className={`${hearts[2]} fa-3x`}></i>
         </span>
     </span>
