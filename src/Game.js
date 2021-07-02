@@ -85,18 +85,38 @@ export const Game = {
         }
 
         G.sideA[0] = G.sideA[0].map((currentCharacter) => {
-          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
+          let trust = currentCharacter.trust
+          //building Trust (+1 Heart) to the player's partner, but only if Trust is not maxed out yet
+          //and both teams chose to Ally
+          if (currentCharacter.name !== G.player.name && currentCharacter.trust !== 90) trust += 20
+
+          return ({
+            ...currentCharacter,
+            bracelet: currentCharacter.bracelet + 2,
+            trust: trust,
+            hearts: styleHearts(trust)
+          })
         })
 
         G.sideB[0] = G.sideB[0].map((currentCharacter) => {
-          return ( { ...currentCharacter, bracelet: currentCharacter.bracelet + 2 } )
+          let trust = currentCharacter.trust
+          //build Trust (+1 Heart) with rival team, but only if Trust is not maxed out yet
+          //and both teams chose to Ally
+          if (currentCharacter.trust !== 90) trust += 20
+
+          return ({
+            ...currentCharacter,
+            bracelet: currentCharacter.bracelet + 2,
+            trust: trust,
+            hearts: styleHearts(trust)
+          })
         })
 
         G.result = {
-          message: "Player: ALLY, Rival: ALLY"
+          message: "BEST PALS: The Player and Rival both decided to ALLY. +2 BRACELET Points to each team."
         }
       }
-      else {
+      else { //opponent betrayed you
         G.player = {
           ...G.player,
           bracelet: G.player.bracelet - 2
@@ -111,7 +131,7 @@ export const Game = {
         })
 
         G.result = {
-          message: "Player: ALLY, Rival: BETRAY"
+          message: "SUCKER: The Player decided to ALLY, but the Rival chose to BETRAY. The Player's team loses 2 BRACELET Points and the Rival's team earns +3 Points."
         }
       }
     }, //end ally move
@@ -138,7 +158,7 @@ export const Game = {
         })
 
         G.result = {
-          message: "Player: BETRAY, Rival: ALLY"
+          message: "TEMPTATION: The Player chose to BETRAY their ALLY. Their Trust for you is forever broken. The Player gains +3 BRACELET Points and the Rival loses 2 Points."
         }
       }
       else { //you both betray each other
@@ -161,7 +181,7 @@ export const Game = {
         })
 
         G.result = {
-          message: "Player: BETRAY, Rival: BETRAY"
+          message: "MUTUAL BETRAYAL. The Player and Rival both decided to betray each other. 0 BRACELET Points awarded to each team."
         }
       }
     }, //end betray move
