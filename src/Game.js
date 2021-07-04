@@ -22,6 +22,7 @@ export const Game = {
         'YELLOW',
         'CYAN' ]
       ),
+      day: 1,
       nonary: nonary,
       virtue: virtue,
       zero: zero
@@ -246,6 +247,8 @@ export const Game = {
     //we need to repopulate G.players because deadlyLife -> dailyLife
     //G.players need to be a 1D array of Objects
     repopulate: (G, ctx) => {
+      G.day++
+
       G.player = {
         ...G.player,
         time: G.resetTime
@@ -277,6 +280,8 @@ export const Game = {
     },
     dailyLife: { //dump G.players into G.teams
       onBegin: (G, ctx) => {
+        G.teamNames = shuffle(G.teamNames)
+        
         let shuffledPlayers = shuffle(G.players) //randomize the 9 characters
         let teams = [] //place shuffled characters here to assign teams
 

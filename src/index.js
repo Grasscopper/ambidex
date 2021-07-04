@@ -8,9 +8,6 @@ import ZeroEscapeIndexContainer from './ZeroEscapeIndexContainer'
 import AmbidexIndexContainer from './AmbidexIndexContainer'
 import AmbidexGameContainer from './AmbidexGameContainer'
 
-import VirtueTestContainer from './VirtueTestContainer'
-import VirtueGameContainer from './VirtueGameContainer'
-
 import BoardGame from './BoardGame'
 
 ReactDOM.render(
@@ -20,8 +17,6 @@ ReactDOM.render(
         <Route exact path="/" component={ZeroEscapeIndexContainer} />
         <Route exact path="/play" component={AmbidexIndexContainer} />
         <Route exact path="/game/:version/:name" component={AmbidexGameContainer} />
-        <Route exact path="/virtue" component={VirtueTestContainer} />
-        <Route exact path="/virtue/:id" component={VirtueGameContainer} />
         <Route exact path="/boardgame" component={BoardGame} />
       </Switch>
     </HashRouter>
