@@ -9,6 +9,7 @@ const Board = (props) => {
   if (props.ctx.phase === 'dailyLife') {
     phase =
     <DailyLife
+    day={props.G.day}
     result={props.G.result.message}
     player={props.G.player}
     teams={props.G.teams}
@@ -18,14 +19,11 @@ const Board = (props) => {
   }
   else if (props.ctx.phase === 'deadlyLife') {
     phase =
-    <DeadlyLife game={props.G} moves={props.moves} events={props.events} />
+    <DeadlyLife game={props.G} moves={props.moves} events={props.events} player={props.G.player} />
   }
 
   return (
-    <div className="index-container">
-      <h1 style={{ color: "#1FD1B2", fontWeight: "bold" }}>Ambidex Game</h1>
-      {phase}
-    </div>
+    <>{phase}</>
   )
 }
 

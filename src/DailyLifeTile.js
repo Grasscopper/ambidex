@@ -49,7 +49,7 @@ const DailyLifeTile = (props) => {
 
 
   //Danganronpa Blood: DC32C6
-  if (hearts[0] === "fas fa-heart-broken") { //same as regular icons, but change the color of the hearts
+  if (props.character.trust === 10) { //same as regular icons, but change the color of the hearts
     skill =
     <>
     <p style={{ fontSize: 28,
@@ -170,6 +170,32 @@ const DailyLifeTile = (props) => {
     <>
     <div className="character column is-half">
       <div className={color} style={selectableTile} onClick={activateModal}>
+        <h1>{props.character.name}</h1>
+        <img src={props.character.picture} alt={props.character.name} />
+        {skill}
+        {icons}
+      </div>
+    </div>
+    <div className="column is-half" />
+    </>
+  }
+
+  if (props.player.name === props.character.name && props.solo === false) { //player is unclickable
+   tile =
+   <div className="character column is-half">
+     <div className={color} style={selectableTile}>
+       <h1>{props.character.name}</h1>
+       <img src={props.character.picture} alt={props.character.name} />
+       {skill}
+       {icons}
+     </div>
+   </div>
+  }
+  else if (props.player.name === props.character.name && props.solo) { //player is unclickable
+    tile =
+    <>
+    <div className="character column is-half">
+      <div className={color} style={selectableTile}>
         <h1>{props.character.name}</h1>
         <img src={props.character.picture} alt={props.character.name} />
         {skill}

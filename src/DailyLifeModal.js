@@ -128,7 +128,7 @@ const DailyLifeModal = (props) => {
                       <span className="icon">
                           <i className="fas fa-hourglass"></i>
                       </span>
-                      <span>left. Unable to build trust.</span>
+                      <span>left. Unable to build trust. Please enter the AB Room.</span>
                       </div>
                   </span>
               </section>

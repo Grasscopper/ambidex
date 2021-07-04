@@ -61,16 +61,38 @@ const SetupGame = (props) => {
 
   return (
     <>
-      <h2 style={{ border: "none" }}>Choose a game and your player character.</h2>
-      <div className="columns is-multiline">
 
-        <div className="column is-full">
+    <section className="hero is-small is-primary">
+        <div className="hero-body">
+            <p className="title">Ambidex Game</p>
+            <p className="subtitle">The Prisoner's Dilemma</p>
+        </div>
+        <div className="hero-foot" style={{ padding: 24, paddingTop: 0 }}>
           <Link to="/">
-            <button className="button is-link">
+            <button className="button is-link is-outlined" style={{ marginRight: 10 }}>
+              <strong>
               Back
+              </strong>
             </button>
           </Link>
         </div>
+    </section>
+
+    <section className="hero is-small has-background-primary-light">
+        <div className="hero-body">
+            <div className="container has-text-centered">
+
+              <p className="title" style={{ color: "#22D1C3" }}>Game Setup</p>
+              <p className="subtitle" style={{ color: "#22D1C3" }}>Choose a Game and Your Player Character</p>
+
+            </div>
+        </div>
+
+    </section>
+
+    <div className="index-container">
+
+      <div className="columns is-multiline">
 
         <div className="character column is-one-third">
           <button id="nonary" className={gameOne} onClick={handleGame} style={{ width: "100%" }}>
@@ -92,6 +114,7 @@ const SetupGame = (props) => {
 
         {boardTiles}
       </div>
+    </div>
     </>
   )
 }
