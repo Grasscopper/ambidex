@@ -32,6 +32,8 @@ const DailyLifeTile = (props) => {
 
   let hearts = props.character.hearts
 
+  //to add 5 Hearts
+  // <div className="icon-text" style={{ padding: 20, justifyContent: "center", flexWrap: "nowrap" }}>
   let icons =
   <span className="icon-text" style={{ padding: 20 }}>
       <span className="icon" style={{ marginLeft: 15, marginRight: 15 }}>
