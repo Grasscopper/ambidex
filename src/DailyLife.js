@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import DailyLifeTile from './DailyLifeTile'
 
@@ -6,6 +6,24 @@ import { shuffle } from './myFunctions'
 
 const DailyLife = (props) => {
   const [tutorial, setTutorial] = useState(false)
+
+  useEffect(() => {
+    let winners = []
+    let losers = []
+
+    const teams = [...props.teams]
+    for (let team = 0; team < teams.length; team++) {
+      for (let player = 0; player < teams[team].length; player++) {
+        if (teams[team][player].bracelet >= 9) winners.push(teams[team][player])
+        else losers.push(teams[team][player])
+      }
+    }
+
+    if (winners.length > 0) {
+      props.setGameResults(winners, losers)
+      props.setPhase("gameOver")
+    }
+  }, [])
 
   const handleTutorial = (event) => {
     event.preventDefault()

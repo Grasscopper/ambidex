@@ -25,7 +25,9 @@ export const Game = {
       day: 1,
       nonary: nonary,
       virtue: virtue,
-      zero: zero
+      zero: zero,
+      winners: {},
+      losers: {}
     }
   ),
 
@@ -33,7 +35,51 @@ export const Game = {
     moveLimit: 1
   },
 
+  // endIf: (G, ctx) => {
+  //   let winners = []
+  //   let losers = []
+  //
+  //   const teams = G.teams
+  //   for (let team = 0; team < teams.length; team++) {
+  //     for (let player = 0; player < teams[team].length; player++) {
+  //       if (teams[team][player].bracelet >= 9) winners.push(teams[team][player])
+  //       else losers.push(teams[team][player])
+  //     }
+  //   }
+  //
+  //   if (winners.length > 0) return { winners: winners, losers: losers }
+  // },
+
   moves: {
+    restart: (G, ctx) => {
+      G.player = {} //your player
+      G.resetTime = 2
+      G.result = {
+        message: ""
+      }
+      G.sideA = [ [], [], [] ] //sideA[1] plays against sideB[1]
+      G.sideB = [ [], [], [] ]
+      G.players = virtue //all 9 players
+      G.teams = [] //all 6 teams
+      G.teamNames = shuffle(
+        ['RED',
+        'GREEN',
+        'BLUE',
+        'MAGENTA',
+        'YELLOW',
+        'CYAN' ]
+      )
+      G.day = 1
+      G.nonary = nonary
+      G.virtue = virtue
+      G.zero = zero
+      G.winners = {}
+      G.losers = {}
+    },
+    setGameResults: (G, ctx, winners, losers) => {
+      G.winners = winners
+      G.losers = losers
+    },
     selectGame: (G, ctx, id) => {
       switch (id) {
         case 'nonary':
@@ -278,10 +324,13 @@ export const Game = {
       start: true, //begin in this phase
       next: 'dailyLife'
     },
+    gameOver: {
+
+    },
     dailyLife: { //dump G.players into G.teams
       onBegin: (G, ctx) => {
         G.teamNames = shuffle(G.teamNames)
-        
+
         let shuffledPlayers = shuffle(G.players) //randomize the 9 characters
         let teams = [] //place shuffled characters here to assign teams
 
@@ -331,25 +380,6 @@ export const Game = {
         G.sideB[2] = G.teams.pop()
       },
       next: 'dailyLife'
-      // onBegin: (G, ctx) => {
-      //   let match = shuffle( [1, 2, 3, 4, 5] )
-      //   G.teams[0][0] = {
-      //     ...G.teams[0][0],
-      //     trust: 100,
-      //     hearts: styleHearts(90)
-      //   }
-      //
-      //   //the G.sides are copies of the teams
-      //   //changing the G.sides doesn't change the G.teams
-      //   G.sideA[0] = G.teams[0] //G.teams[0] is always the player's team
-      //   G.sideB[0] = G.teams[match[0]]
-      //
-      //   G.sideA[1] = G.teams[match[1]]
-      //   G.sideB[1] = G.teams[match[2]]
-      //
-      //   G.sideA[2] = G.teams[match[3]]
-      //   G.sideB[2] = G.teams[match[4]]
-      // }
     } //end deadlyLife
     } //end phases
   } //end Game
