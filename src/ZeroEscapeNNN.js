@@ -139,6 +139,9 @@ const ZeroEscapeNNN = (props) => {
               </div>
         </div>
 
+        <div className="column is-full">
+        <h2>Characters</h2>
+        </div>
         {characterTiles}
     </div>
   )

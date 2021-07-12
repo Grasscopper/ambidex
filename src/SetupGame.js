@@ -5,24 +5,24 @@ import SetupGameTile from './SetupGameTile'
 const SetupGame = (props) => {
   const [selectedGames, setSelectedGames] = useState( [false, true, false] )
 
-  let gameOne = "button is-medium is-primary"
-  let gameTwo = "button is-medium"
-  let gameThree = "button is-medium"
+  let gameOne = "button is-medium is-primary is-outlined"
+  let gameTwo = "button is-medium is-primary is-active"
+  let gameThree = "button is-medium is-primary is-outlined"
 
   if (selectedGames[0]) {
-    gameOne = "button is-medium is-primary"
-    gameTwo = "button is-medium"
-    gameThree = "button is-medium"
+    gameOne = "button is-medium is-primary is-active "
+    gameTwo = "button is-medium is-primary is-outlined"
+    gameThree = "button is-medium is-primary is-outlined"
   }
   else if (selectedGames[1]) {
-    gameOne = "button is-medium"
-    gameTwo = "button is-medium is-primary"
-    gameThree = "button is-medium"
+    gameOne = "button is-medium is-primary is-outlined"
+    gameTwo = "button is-medium is-primary is-active"
+    gameThree = "button is-medium is-primary is-outlined"
   }
   else if (selectedGames[2]) {
-    gameOne = "button is-medium"
-    gameTwo = "button is-medium"
-    gameThree = "button is-medium is-primary"
+    gameOne = "button is-medium is-primary is-outlined"
+    gameTwo = "button is-medium is-primary is-outlined"
+    gameThree = "button is-medium is-primary is-active "
   }
 
   const handleGame = (event) => {
@@ -65,34 +65,18 @@ const SetupGame = (props) => {
     <section className="hero is-small is-primary">
         <div className="hero-body">
             <p className="title">Ambidex Game</p>
-            <p className="subtitle">The Prisoner's Dilemma</p>
         </div>
-        <div className="hero-foot" style={{ padding: 24, paddingTop: 0 }}>
-          <Link to="/">
-            <button className="button is-link is-outlined" style={{ marginRight: 10 }}>
-              <strong>
-              Back
-              </strong>
-            </button>
-          </Link>
-        </div>
-    </section>
-
-    <section className="hero is-small has-background-primary-light">
-        <div className="hero-body">
-            <div className="container has-text-centered">
-
-              <p className="title" style={{ color: "#22D1C3" }}>Game Setup</p>
-              <p className="subtitle" style={{ color: "#22D1C3" }}>Choose a Game and Your Player Character</p>
-
-            </div>
-        </div>
-
     </section>
 
     <div className="index-container">
 
       <div className="columns is-multiline">
+
+        <div className="column is-full">
+          <p className="title" style={{ color: "white", borderBottom: "solid", paddingBottom: 5 }}>
+          Game Select
+          </p>
+        </div>
 
         <div className="character column is-one-third">
           <button id="nonary" className={gameOne} onClick={handleGame} style={{ width: "100%" }}>
@@ -110,6 +94,12 @@ const SetupGame = (props) => {
           <button id="zero" className={gameThree} onClick={handleGame} style={{ width: "100%" }}>
             <strong>Zero Time Dilemma</strong>
           </button>
+        </div>
+
+        <div className="column is-full">
+          <p className="title" style={{ color: "white", borderBottom: "solid", paddingBottom: 5 }}>
+          Player Select
+          </p>
         </div>
 
         {boardTiles}

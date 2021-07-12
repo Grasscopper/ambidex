@@ -1,6 +1,10 @@
 import React from 'react'
 
 const DailyLifeModal = (props) => {
+  let characterName = props.character.name
+  if (characterName[ characterName.length - 1 ] === "s") characterName += "'"
+  else characterName += "'s"
+
   let trustOutcome = props.character.trust + 20
   let timeOutcome = props.player.time - 1
 
@@ -94,7 +98,7 @@ const DailyLifeModal = (props) => {
               <section className="modal-card-body" style={{ backgroundColor: "#F14668", fontSize: 24 }}>
                   <span className="icon-text">
                       <div>
-                      <span>{props.character.name}'s Trust</span>
+                      <span>{characterName} Trust</span>
                       <span className="icon">
                           <i className="fas fa-heart-broken"></i>
                       </span>
@@ -154,7 +158,7 @@ const DailyLifeModal = (props) => {
               <section className="modal-card-body" style={{ backgroundColor: "#F14668", fontSize: 24 }}>
                   <span className="icon-text">
                       <div>
-                      <span>{props.character.name}'s Trust</span>
+                      <span>{characterName} Trust</span>
                       <span className="icon">
                           <i className="fas fa-heart"></i>
                       </span>

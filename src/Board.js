@@ -32,6 +32,7 @@ const Board = (props) => {
     day={props.G.day}
     restart={props.moves.restart}
     setPhase={props.events.setPhase}
+    player={props.G.player}
     winners={props.G.winners}
     losers={props.G.losers} />
   }
