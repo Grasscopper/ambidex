@@ -26,12 +26,12 @@ const DeadlyLife = (props) => {
           How to Use the AB Room
         </p>
 
-        <section className="section has-background-primary-light notification">
-          <h1 className="title" style={{ color: "black" }}>
+        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
+          <h1 className="title" style={{ color: "white" }}>
           How to Escape
           </h1>
 
-          <div className="content" style={{ color: "black" }}>
+          <div className="content" style={{ color: "white" }}>
               <p>
               Earn 9 BRACELET Points.
               </p>
@@ -39,12 +39,12 @@ const DeadlyLife = (props) => {
 
         </section>
 
-        <section className="section has-background-primary-light notification">
-          <h1 className="title" style={{ color: "black" }}>
+        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
+          <h1 className="title" style={{ color: "white" }}>
           Decision
           </h1>
 
-          <div className="content" style={{ color: "black" }}>
+          <div className="content" style={{ color: "white" }}>
               <p>
               Each team will decide whether to <strong>ALLY</strong> or <strong>BETRAY</strong>. If both teams ally,
               then both teams earn points. But if one team chooses to betray and the other
@@ -56,12 +56,12 @@ const DeadlyLife = (props) => {
           </div>
         </section>
 
-        <section className="section has-background-primary-light notification">
-          <h1 className="title" style={{ color: "black" }}>
+        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
+          <h1 className="title" style={{ color: "white" }}>
           Points
           </h1>
 
-          <div className="content" style={{ color: "black" }}>
+          <div className="content" style={{ color: "white" }}>
               <p>
               Both teams ALLY: +2, +2.
               </p>
@@ -120,20 +120,10 @@ const DeadlyLife = (props) => {
     <section className="hero is-small is-primary">
         <div className="hero-body">
             <p className="title">Ambidex Game</p>
-            <p className="subtitle">The Prisoner's Dilemma</p>
-        </div>
-        <div className="hero-foot" style={{ padding: 24, paddingTop: 0 }}>
-          <Link to="/">
-            <button className="button is-link is-outlined" style={{ marginRight: 10 }}>
-              <strong>
-              Back
-              </strong>
-            </button>
-          </Link>
         </div>
     </section>
 
-    <section className="hero has-background-primary-light">
+    <section className="hero">
         <div className="hero-body">
             <div className="container has-text-centered">
 

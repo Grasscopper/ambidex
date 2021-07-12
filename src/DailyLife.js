@@ -46,28 +46,28 @@ const DailyLife = (props) => {
           How to Play the Daily Life Phase
         </p>
 
-        <section className="section has-background-primary-light notification">
-          <h1 className="title" style={{ color: "black" }}>
+        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
+          <h1 className="title" style={{ color: "white" }}>
           Spending Time with Others
           </h1>
 
-          <div className="content" style={{ color: "black" }}>
+          <div className="content" style={{ color: "white" }}>
             <p>
             Select 2 characters to build their Trust.
             The higher their Trust, the more likely they are to Ally.
-            After you spend your time, click "Enter the AB Room" to
+            After you spend your time, click "Enter AB Room" to
             advance to the next stage and test your Trust with the other
             prisoners.
             </p>
           </div>
         </section>
 
-        <section className="section has-background-primary-light notification">
-          <h1 className="title" style={{ color: "black" }}>
+        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
+          <h1 className="title" style={{ color: "white" }}>
           Game Consequences
           </h1>
 
-          <div className="content" style={{ color: "black" }}>
+          <div className="content" style={{ color: "white" }}>
             <p>
             When you come back from the AB Room, and begin a new day,
             your choice will change your relationships. If both teams
@@ -93,11 +93,11 @@ const DailyLife = (props) => {
   if (props.result.length > 0) {
     result =
     <>
-    <div className="column is-offset-4 is-4 has-background-primary" style={{ textAlign: "left" }}>
+    <div className="column is-offset-3 is-6 has-background-primary" style={{ textAlign: "left", marginTop: 20 }}>
     <strong style={{ color: "white" }}>{props.result}</strong>
     </div>
 
-    <div className="column is-4" />
+    <div className="column is-3" />
     </>
   }
 
@@ -151,20 +151,10 @@ const DailyLife = (props) => {
       <section className="hero is-small is-primary">
           <div className="hero-body">
               <p className="title">Ambidex Game</p>
-              <p className="subtitle">The Prisoner's Dilemma</p>
-          </div>
-          <div className="hero-foot" style={{ padding: 24, paddingTop: 0 }}>
-            <Link to="/">
-              <button className="button is-link is-outlined" style={{ marginRight: 10 }}>
-                <strong>
-                Back
-                </strong>
-              </button>
-            </Link>
           </div>
       </section>
 
-      <section className="hero has-background-primary-light" style={{ paddingBottom: 10 }}>
+      <section className="hero " style={{ paddingBottom: 10 }}>
           <div className="hero-body">
               <div className="container has-text-centered">
 

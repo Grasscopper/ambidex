@@ -10,11 +10,14 @@ const GameOverContainer = (props) => {
     props.setPhase("setupGame")
   }
 
+  let escape = "You Lost"
+  if (props.player.bracelet >= 9) escape = "You Escaped"
+
   let winners = ""
   for (let w = 0; w < props.winners.length; w++) {
     if (w === props.winners.length - 1 && props.winners.length !== 1) winners += " and "
     winners += props.winners[w].name
-    if (w !== props.winners.length - 1) winners += ", "
+    if (w !== props.winners.length - 1 && props.winners.length !== 2) winners += ", "
   }
 
   let won = "have won."
@@ -32,51 +35,58 @@ const GameOverContainer = (props) => {
 
   let winnerTiles = props.winners.map((winner) => {
     return (
-      <GameOverTile character={winner} />
+      <GameOverTile character={winner} lost={false} />
     )
   })
+
+  let loserTiles = props.losers.map((loser) => {
+    return (
+      <GameOverTile character={loser} lost={true} />
+    )
+  })
+
+  // <div className="columns is-multiline" style={{ marginTop: 20 }}>
+  // {winnerTiles}
+  // </div>
 
   return (
     <>
       <section className="hero is-small is-primary">
           <div className="hero-body">
               <p className="title">Ambidex Game</p>
-              <p className="subtitle">The Prisoner's Dilemma</p>
-          </div>
-          <div className="hero-foot" style={{ padding: 24, paddingTop: 0 }}>
-            <Link to="/">
-              <button className="button is-link is-outlined" style={{ marginRight: 10 }}>
-                <strong>
-                Back
-                </strong>
-              </button>
-            </Link>
           </div>
       </section>
 
-      <section className="hero has-background-primary-light" style={{ paddingBottom: 10 }}>
+      <section className="hero" style={{ paddingBottom: 10 }}>
           <div className="hero-body">
               <div className="container has-text-centered">
 
                 <p className="title" style={{ color: "#22D1C3" }}>Game Over</p>
                 <p className="subtitle" style={{ color: "#22D1C3" }}>Day {props.day}</p>
-
-
-
+                <button className="button is-primary is-medium is-outlined" onClick={handleReset}>Reset Game</button>
               </div>
           </div>
 
       </section>
-    <div className="index-container">
-      <p className="title has-text-white">{winners} {won}</p>
-      <p className="title has-text-danger">{losers} {lost}</p>
-      <button className="button is-primary" onClick={handleReset}>Reset</button>
 
-      <div className="columns is-multiline" style={{ marginTop: 20 }}>
-      {winnerTiles}
-      </div>
+      <section className="hero is-small">
+        <div className="hero-body has-text-centered">
+          <p className="title has-text-white">{escape}</p>
+          <p className="title" style={{ color: "#48C774" }}>{winners} {won}</p>
+          <div className="is-flex-direction-row">
+          {winnerTiles}
+          </div>
+        </div>
+      </section>
 
-    </div>
+      <section className="hero is-small">
+        <div className="hero-body">
+          <p className="title" style={{ color: "white" }}>{losers} {lost}</p>
+          <div className="is-flex-direction-row">
+          {loserTiles}
+          </div>
+        </div>
+      </section>
     </>
   )
 }
