@@ -80,7 +80,7 @@ const GameOverContainer = (props) => {
       </section>
 
       <section className="hero is-small">
-        <div className="hero-body">
+        <div className="hero-body has-text-centered">
           <p className="title" style={{ color: "white" }}>{losers} {lost}</p>
           <div className="is-flex-direction-row">
           {loserTiles}
