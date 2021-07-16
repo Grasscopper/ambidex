@@ -148,22 +148,82 @@ const DailyLife = (props) => {
 
   return (
     <>
-      <section className="hero is-small is-primary">
-          <div className="hero-body">
-              <p className="title">Ambidex Game</p>
+      <nav className="navbar" style={{ backgroundColor: "#63E6BE" }}>
+        <div className="navbar-brand">
+          <div className="navbar-item" href="https://versions.bulma.io/0.7.0">
+          <p className="title" style={{ "letter-spacing": "-0.05em", color: "#183153" }}>Ambidex Game</p>
           </div>
-      </section>
+        </div>
+      </nav>
 
       <section className="hero " style={{ paddingBottom: 10 }}>
           <div className="hero-body">
               <div className="container has-text-centered">
 
-                <p className="title" style={{ color: "#22D1C3" }}>Daily Life</p>
-                <p className="subtitle" style={{ color: "#22D1C3" }}>Day {props.day}</p>
+                <p className="title" style={{ color: "white" }}>Daily Life</p>
+
+                <div className="columns is-multiline">
+                    <div className="column is-offset-4 is 4">
+                          <p className="title" style={{ color: "#63E6BE", marginBottom: 15 }}>Day {props.day}</p>
+                          <span className="icon is-large">
+                            <i className="fas fa-sun fa-3x" style={{ color: "#F2C46E" }} />
+                          </span>
+                    </div>
+
+                    <div className="column is-4" />
+
+                    <div className="column is-offset-4 is-4">
+                    <p className="title" style={{ color: "#63E6BE", marginBottom: 15 }}>9 Doors Remain</p>
+                    </div>
+
+                    <div className="column is-4" />
+
+                </div>
+
+                <div style={{ marginBottom: 20 }}>
+                <span className="icon-text">
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+
+                    <span className="icon is-large">
+                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
+                    </span>
+                </span>
+                </div>
 
                 <div className="columns is-multiline">
                     <div className="column is-offset-4 is-4">
-                        <button className="button is-primary is-medium is-outlined" style={{ width: "75%" }} onClick={handlePhase}>
+                        <button className="button is-primary is-medium is-outlined" style={{ width: "75%", color: "#63E6BE", borderColor: "#63E6BE" }} onClick={handlePhase}>
                         <strong>Enter AB Room</strong>
                         </button>
                     </div>
@@ -180,7 +240,7 @@ const DailyLife = (props) => {
             <nav className="tabs is-boxed is-fullwidth">
               <div className="container">
                 <ul>
-                  <li><a className={tutorialSelected} style={{ color: "#22D1C3" }} onClick={handleTutorial}>Tutorial</a></li>
+                  <li><a className={tutorialSelected} style={{ color: "#63E6BE" }} onClick={handleTutorial}>Tutorial</a></li>
                 </ul>
               </div>
             </nav>
