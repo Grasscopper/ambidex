@@ -148,19 +148,19 @@ const DailyLife = (props) => {
 
   return (
     <>
-      <nav className="navbar" style={{ backgroundColor: "#63E6BE" }}>
+      <nav className="navbar" style={{ backgroundColor: "#282C34" }}>
         <div className="navbar-brand">
           <div className="navbar-item" href="https://versions.bulma.io/0.7.0">
-          <p className="title" style={{ "letter-spacing": "-0.05em", color: "#183153" }}>Ambidex Game</p>
+          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
           </div>
         </div>
       </nav>
 
-      <section className="hero " style={{ paddingBottom: 10 }}>
+      <section className="hero " style={{ paddingBottom: 10, backgroundColor: "#183153" }}>
           <div className="hero-body">
               <div className="container has-text-centered">
 
-                <p className="title" style={{ color: "white" }}>Daily Life</p>
+                <p className="title" style={{ color: "white", fontSize: 48 }}>Daily Life</p>
 
                 <div className="columns is-multiline">
                     <div className="column is-offset-4 is 4">
@@ -172,53 +172,6 @@ const DailyLife = (props) => {
 
                     <div className="column is-4" />
 
-                    <div className="column is-offset-4 is-4">
-                    <p className="title" style={{ color: "#63E6BE", marginBottom: 15 }}>9 Doors Remain</p>
-                    </div>
-
-                    <div className="column is-4" />
-
-                </div>
-
-                <div style={{ marginBottom: 20 }}>
-                <span className="icon-text">
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-
-                    <span className="icon is-large">
-                    <i className="fas fa-door-closed fa-2x" style={{ color: "#63E6BE" }}/>
-                    </span>
-                </span>
                 </div>
 
                 <div className="columns is-multiline">
@@ -248,6 +201,14 @@ const DailyLife = (props) => {
       </section>
 
       {showTutorial}
+
+      <section className="hero is-small" style={{ backgroundColor: "#63E6BE" }}>
+          <div className="hero-body">
+          <div className="container has-text-centered">
+          <p className="title" style={{ color: "#183153", fontSize: 40 }}>Player Team</p>
+          </div>
+          </div>
+      </section>
 
       <div className="index-container">
         <div className="columns is-multiline">
