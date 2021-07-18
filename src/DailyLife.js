@@ -202,14 +202,6 @@ const DailyLife = (props) => {
 
       {showTutorial}
 
-      <section className="hero is-small" style={{ backgroundColor: "#63E6BE" }}>
-          <div className="hero-body">
-          <div className="container has-text-centered">
-          <p className="title" style={{ color: "#183153", fontSize: 40 }}>Player Team</p>
-          </div>
-          </div>
-      </section>
-
       <div className="index-container">
         <div className="columns is-multiline">
         {newTiles}
