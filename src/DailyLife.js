@@ -36,7 +36,7 @@ const DailyLife = (props) => {
   if (tutorial) {
     tutorialSelected = "has-background-danger-light"
     showTutorial =
-    <section className="hero is-small is-primary" onClick={handleTutorial}>
+    <section className="hero is-small is-info" onClick={handleTutorial}>
       <div className="hero-body">
 
         <p className="title">
@@ -148,13 +148,15 @@ const DailyLife = (props) => {
 
   return (
     <>
-      <nav className="navbar" style={{ backgroundColor: "#282C34" }}>
-        <div className="navbar-brand">
-          <div className="navbar-item" href="https://versions.bulma.io/0.7.0">
+    <nav className="navbar is-primary">
+      <div className="navbar-brand">
+        <div className="navbar-item">
+
           <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
-          </div>
+
         </div>
-      </nav>
+      </div>
+    </nav>
 
       <section className="hero " style={{ paddingBottom: 10, backgroundColor: "#183153" }}>
           <div className="hero-body">
