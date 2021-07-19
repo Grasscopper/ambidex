@@ -148,22 +148,35 @@ const DailyLife = (props) => {
 
   return (
     <>
-      <section className="hero is-small is-primary">
-          <div className="hero-body">
-              <p className="title">Ambidex Game</p>
+      <nav className="navbar" style={{ backgroundColor: "#282C34" }}>
+        <div className="navbar-brand">
+          <div className="navbar-item" href="https://versions.bulma.io/0.7.0">
+          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
           </div>
-      </section>
+        </div>
+      </nav>
 
-      <section className="hero " style={{ paddingBottom: 10 }}>
+      <section className="hero " style={{ paddingBottom: 10, backgroundColor: "#183153" }}>
           <div className="hero-body">
               <div className="container has-text-centered">
 
-                <p className="title" style={{ color: "#22D1C3" }}>Daily Life</p>
-                <p className="subtitle" style={{ color: "#22D1C3" }}>Day {props.day}</p>
+                <p className="title" style={{ color: "white", fontSize: 48 }}>Daily Life</p>
+
+                <div className="columns is-multiline">
+                    <div className="column is-offset-4 is 4">
+                          <p className="title" style={{ color: "#63E6BE", marginBottom: 15 }}>Day {props.day}</p>
+                          <span className="icon is-large">
+                            <i className="fas fa-sun fa-3x" style={{ color: "#F2C46E" }} />
+                          </span>
+                    </div>
+
+                    <div className="column is-4" />
+
+                </div>
 
                 <div className="columns is-multiline">
                     <div className="column is-offset-4 is-4">
-                        <button className="button is-primary is-medium is-outlined" style={{ width: "75%" }} onClick={handlePhase}>
+                        <button className="button is-primary is-medium is-outlined" style={{ width: "75%", color: "#63E6BE", borderColor: "#63E6BE" }} onClick={handlePhase}>
                         <strong>Enter AB Room</strong>
                         </button>
                     </div>
@@ -180,7 +193,7 @@ const DailyLife = (props) => {
             <nav className="tabs is-boxed is-fullwidth">
               <div className="container">
                 <ul>
-                  <li><a className={tutorialSelected} style={{ color: "#22D1C3" }} onClick={handleTutorial}>Tutorial</a></li>
+                  <li><a className={tutorialSelected} style={{ color: "#63E6BE" }} onClick={handleTutorial}>Tutorial</a></li>
                 </ul>
               </div>
             </nav>
