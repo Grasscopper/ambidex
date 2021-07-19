@@ -70,16 +70,16 @@ button:hover {
 /* background-color: #1FD1B2; */
 /* box-shadow: 12px 12px 2px 1px rgba(72, 199, 142, .2); */
 .column-nest {
-  background-color: #8BDFF9;
+  background-color: #183153;
   border-radius: 2%;
-  box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2);
+  box-shadow: 7px 7px 2px 1px rgba(0, 0, 0, .2);
   height: 75%;
 }
 
 .winner-nest {
   background-color: #48C78E;
   border-radius: 2%;
-  box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2);
+  box-shadow: 7px 7px 2px 1px rgba(0, 0, 0, .2);
   height: 75%;
 }
 
@@ -87,15 +87,15 @@ button:hover {
 .rival-nest {
   background-color: #F14668;
   border-radius: 2%;
-  box-shadow: 12px 12px 2px 1px rgba(176, 46, 12, .2);
+  box-shadow: 7px 7px 2px 1px rgba(0, 0, 0, .2);
   /* original rival nest box shadow */
   /* box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2); */
   height: 75%;
 }
 
 .player-nest {
-  background-color: #0CAADC;
+  background-color: #3298DC;
   border-radius: 2%;
-  box-shadow: 12px 12px 2px 1px rgba(12, 170, 220, .2);
+  box-shadow: 7px 7px 2px 1px rgba(0, 0, 0, .2);
   height: 75%;
 }

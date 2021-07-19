@@ -10,8 +10,14 @@ const GameOverContainer = (props) => {
     props.setPhase("setupGame")
   }
 
-  let escape = "You Lost"
-  if (props.player.bracelet >= 9) escape = "You Escaped"
+  let escape = "ZERO ESCAPE"
+  let escapeSub = `${props.player.name} lost the Ambidex Game`
+  let escapeColor = "#F14668"
+  if (props.player.bracelet >= 9) {
+    escape = `${props.player.name} Escaped`
+    escapeSub = `${props.player.name} won the Ambidex Game`
+    escapeColor = "#48C774"
+  }
 
   let winners = ""
   for (let w = 0; w < props.winners.length; w++) {
@@ -51,19 +57,23 @@ const GameOverContainer = (props) => {
 
   return (
     <>
-      <section className="hero is-small is-primary">
-          <div className="hero-body">
-              <p className="title">Ambidex Game</p>
-          </div>
-      </section>
+    <nav className="navbar is-primary">
+      <div className="navbar-brand">
+        <div className="navbar-item">
 
-      <section className="hero" style={{ paddingBottom: 10 }}>
+          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
+
+        </div>
+      </div>
+    </nav>
+
+      <section className="hero" style={{ paddingBottom: 10, backgroundColor: "#183153" }}>
           <div className="hero-body">
               <div className="container has-text-centered">
 
-                <p className="title" style={{ color: "#22D1C3" }}>Game Over</p>
-                <p className="subtitle" style={{ color: "#22D1C3" }}>Day {props.day}</p>
-                <button className="button is-primary is-medium is-outlined" onClick={handleReset}>Reset Game</button>
+                <p className="title" style={{ color: escapeColor, fontSize: 48 }}>{escape}</p>
+                <p className="title" style={{ color: "white" }}>{escapeSub}</p>
+                <button className="button is-primary is-medium is-outlined" style={{ color: "#63E6BE", borderColor: "#63E6BE" }} onClick={handleReset}>Reset Game</button>
               </div>
           </div>
 
@@ -71,8 +81,7 @@ const GameOverContainer = (props) => {
 
       <section className="hero is-small">
         <div className="hero-body has-text-centered">
-          <p className="title has-text-white">{escape}</p>
-          <p className="title" style={{ color: "#48C774" }}>{winners} {won}</p>
+          <p className="title" style={{ color: "white" }}>{winners} {won}</p>
           <div className="is-flex-direction-row">
           {winnerTiles}
           </div>

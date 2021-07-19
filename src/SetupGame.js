@@ -61,50 +61,53 @@ const SetupGame = (props) => {
 
   return (
     <>
+      <nav className="navbar is-primary">
+        <div className="navbar-brand">
+          <div className="navbar-item">
 
-    <section className="hero is-small is-primary">
-        <div className="hero-body">
-            <p className="title">Ambidex Game</p>
+            <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
+
+          </div>
         </div>
-    </section>
+      </nav>
 
-    <div className="index-container">
+      <div className="index-container">
 
-      <div className="columns is-multiline">
+        <div className="columns is-multiline">
 
-        <div className="column is-full">
-          <p className="title" style={{ color: "white", borderBottom: "solid", paddingBottom: 5 }}>
-          Game Select
-          </p>
+          <div className="column is-full">
+            <p className="title" style={{ color: "white", borderBottom: "solid", paddingBottom: 5 }}>
+            Game Select
+            </p>
+          </div>
+
+          <div className="character column is-one-third">
+            <button id="nonary" className={gameOne} onClick={handleGame} style={{ width: "100%" }}>
+              <strong>9 Hours, 9 Persons, 9 Doors</strong>
+            </button>
+          </div>
+
+          <div className="character column is-one-third">
+            <button id="virtue" className={gameTwo} onClick={handleGame} style={{ width: "100%" }}>
+            <strong>Virtue's Last Reward</strong>
+            </button>
+          </div>
+
+          <div className="character column is-one-third">
+            <button id="zero" className={gameThree} onClick={handleGame} style={{ width: "100%" }}>
+              <strong>Zero Time Dilemma</strong>
+            </button>
+          </div>
+
+          <div className="column is-full">
+            <p className="title" style={{ color: "white", borderBottom: "solid", paddingBottom: 5 }}>
+            Player Select
+            </p>
+          </div>
+
+          {boardTiles}
         </div>
-
-        <div className="character column is-one-third">
-          <button id="nonary" className={gameOne} onClick={handleGame} style={{ width: "100%" }}>
-            <strong>9 Hours, 9 Persons, 9 Doors</strong>
-          </button>
-        </div>
-
-        <div className="character column is-one-third">
-          <button id="virtue" className={gameTwo} onClick={handleGame} style={{ width: "100%" }}>
-          <strong>Virtue's Last Reward</strong>
-          </button>
-        </div>
-
-        <div className="character column is-one-third">
-          <button id="zero" className={gameThree} onClick={handleGame} style={{ width: "100%" }}>
-            <strong>Zero Time Dilemma</strong>
-          </button>
-        </div>
-
-        <div className="column is-full">
-          <p className="title" style={{ color: "white", borderBottom: "solid", paddingBottom: 5 }}>
-          Player Select
-          </p>
-        </div>
-
-        {boardTiles}
       </div>
-    </div>
     </>
   )
 }

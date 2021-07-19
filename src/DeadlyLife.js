@@ -16,7 +16,7 @@ const DeadlyLife = (props) => {
   if (tutorial) {
     tutorialSelected = "has-background-danger-light"
     showTutorial =
-    <section className="hero is-small is-primary" onClick={handleTutorial}>
+    <section className="hero is-small is-info" onClick={handleTutorial}>
       <div className="hero-body">
 
         <p className="title">
@@ -117,17 +117,21 @@ const DeadlyLife = (props) => {
 
   return (
     <>
-    <section className="hero is-small is-primary">
-        <div className="hero-body">
-            <p className="title">Ambidex Game</p>
-        </div>
-    </section>
+    <nav className="navbar is-primary">
+      <div className="navbar-brand">
+        <div className="navbar-item">
 
-    <section className="hero">
+          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
+
+        </div>
+      </div>
+    </nav>
+
+    <section className="hero" style={{ backgroundColor: "#183153" }}>
         <div className="hero-body">
             <div className="container has-text-centered">
 
-              <p className="title" style={{ color: "#22D1C3" }}>
+              <p className="title" style={{ color: "white", fontSize: 48 }}>
               AB Room
               </p>
 
@@ -156,7 +160,7 @@ const DeadlyLife = (props) => {
           <nav className="tabs is-boxed is-fullwidth">
             <div className="container">
               <ul>
-                <li><a className={tutorialSelected} style={{ color: "#22D1C3" }} onClick={handleTutorial}>Tutorial</a></li>
+                <li><a className={tutorialSelected} style={{ color: "#63E6BE" }} onClick={handleTutorial}>Tutorial</a></li>
               </ul>
             </div>
           </nav>
