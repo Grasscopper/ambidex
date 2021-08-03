@@ -135,7 +135,10 @@ export const Game = {
           let trust = currentCharacter.trust
           //building Trust (+1 Heart) to the player's partner, but only if Trust is not maxed out yet
           //and both teams chose to Ally
-          if (currentCharacter.name !== G.player.name && currentCharacter.trust !== 90) trust += 20
+          if (currentCharacter.name !== G.player.name && currentCharacter.trust !== 90 && currentCharacter.trust !== 10) trust += 20
+          //trust !== 10 condition added because if you and your broken trust opponent both ALLY,
+          //then they Trust you again which is not what I designed (If you betray someone, their Trust
+          //must be forever broken)
 
           return ({
             ...currentCharacter,

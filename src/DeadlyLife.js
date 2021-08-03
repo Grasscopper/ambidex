@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import DeadlyLifeTile from './DeadlyLifeTile'
+import TutorialComponent from './TutorialComponent'
 
 const DeadlyLife = (props) => {
   const [tutorial, setTutorial] = useState(false)
@@ -15,68 +16,7 @@ const DeadlyLife = (props) => {
 
   if (tutorial) {
     tutorialSelected = "has-background-danger-light"
-    showTutorial =
-    <section className="hero is-small is-info" onClick={handleTutorial}>
-      <div className="hero-body">
-
-        <p className="title">
-          Tutorial
-        </p>
-        <p className="subtitle">
-          How to Use the AB Room
-        </p>
-
-        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
-          <h1 className="title" style={{ color: "white" }}>
-          How to Escape
-          </h1>
-
-          <div className="content" style={{ color: "white" }}>
-              <p>
-              Earn 9 BRACELET Points.
-              </p>
-          </div>
-
-        </section>
-
-        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
-          <h1 className="title" style={{ color: "white" }}>
-          Decision
-          </h1>
-
-          <div className="content" style={{ color: "white" }}>
-              <p>
-              Each team will decide whether to <strong>ALLY</strong> or <strong>BETRAY</strong>. If both teams ally,
-              then both teams earn points. But if one team chooses to betray and the other
-              team chooses to be an ally, then the traitor earns more points and the friend loses points.
-              While you yourself have full control of your decision,
-              the chance of the rival team choosing to ally is based on their <strong>Trust</strong> of you.
-              Note: In a PAIR, the average of the two Trust values will be the final Trust value considered.
-              </p>
-          </div>
-        </section>
-
-        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
-          <h1 className="title" style={{ color: "white" }}>
-          Points
-          </h1>
-
-          <div className="content" style={{ color: "white" }}>
-              <p>
-              Both teams ALLY: +2, +2.
-              </p>
-              <p>
-              One team BETRAYS their ALLY: Traitor +3, Friend -2
-              </p>
-              <p>
-              Both teams BETRAY: +0, +0.
-              </p>
-          </div>
-
-        </section>
-
-      </div>
-    </section>
+    showTutorial = <TutorialComponent handleTutorial={handleTutorial} />
   }
 
   let gameOne = <DeadlyLifeTile size={6} player={props.player} team={props.game.sideA[0]} rival={props.game.sideB[0]} />

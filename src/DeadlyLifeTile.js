@@ -77,7 +77,7 @@ const DeadlyLifeTile = (props) => {
         <img src={member.picture} alt={member.name} />
         <p style={{ fontSize: 28,
         fontWeight: "bold",
-        backgroundColor: "#06BEE1",
+        backgroundColor: "#1FD1B2",
         marginTop: 10 }}>BRACELET {member.bracelet}</p>
         {skill}
         {icons}
@@ -93,7 +93,7 @@ const DeadlyLifeTile = (props) => {
           <img src={member.picture} alt={member.name} />
           <p style={{ fontSize: 28,
           fontWeight: "bold",
-          backgroundColor: "#06BEE1",
+          backgroundColor: "#1FD1B2",
           marginTop: 10 }}>BRACELET {member.bracelet}</p>
           {skill}
           {icons}
@@ -166,7 +166,7 @@ const DeadlyLifeTile = (props) => {
         <img src={member.picture} alt={member.name} />
         <p style={{ fontSize: 28,
         fontWeight: "bold",
-        backgroundColor: "#06BEE1",
+        backgroundColor: "#1FD1B2",
         marginTop: 10 }}>BRACELET {member.bracelet}</p>
         {skill}
         {icons}
@@ -182,7 +182,7 @@ const DeadlyLifeTile = (props) => {
           <img src={member.picture} alt={member.name} />
           <p style={{ fontSize: 28,
           fontWeight: "bold",
-          backgroundColor: "#06BEE1",
+          backgroundColor: "#1FD1B2",
           marginTop: 10 }}>BRACELET {member.bracelet}</p>
           {skill}
           {icons}
