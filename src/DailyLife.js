@@ -107,7 +107,7 @@ const DailyLife = (props) => {
       <div className="navbar-brand">
         <div className="navbar-item">
 
-          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
+          <p className="title" style={{ letterSpacing: "-0.05em", color: "white" }}>Ambidex Game</p>
 
         </div>
       </div>
