@@ -61,7 +61,7 @@ const DeadlyLife = (props) => {
       <div className="navbar-brand">
         <div className="navbar-item">
 
-          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
+          <p className="title" style={{ letterSpacing: "-0.05em", color: "white" }}>Ambidex Game</p>
 
         </div>
       </div>
@@ -76,8 +76,20 @@ const DeadlyLife = (props) => {
               </p>
 
               <div className="columns is-multiline">
+                  <div className="column is-offset-4 is 4">
+                        <p className="title" style={{ color: "#63E6BE", marginBottom: 15 }}>Night {props.night}</p>
+                        <span className="icon is-large">
+                          <i className="fas fa-moon fa-3x" style={{ color: "#FEFCD7" }} />
+                        </span>
+                  </div>
+
+                  <div className="column is-4" />
+
+              </div>
+
+              <div className="columns is-multiline">
               <div className="column is-4 is-offset-4">
-              <button className="button is-success is-large is-outlined"
+              <button className="button is-primary is-large is-outlined"
               style={{ width: "100%" }}
               onClick={handleAlly}>
                 <strong>ALLY</strong>

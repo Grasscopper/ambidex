@@ -1,4 +1,3 @@
-import { INVALID_MOVE } from 'boardgame.io/core'
 import { nonary, virtue, zero } from './characters.js'
 import { shuffle, styleHearts, getRandomInt } from './myFunctions.js'
 

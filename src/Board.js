@@ -23,7 +23,7 @@ const Board = (props) => {
   }
   else if (props.ctx.phase === 'deadlyLife') {
     phase =
-    <DeadlyLife game={props.G} moves={props.moves} events={props.events} player={props.G.player} />
+    <DeadlyLife game={props.G} moves={props.moves} events={props.events} player={props.G.player} night={props.G.day} />
   }
 
   else if (props.ctx.phase === 'gameOver') {

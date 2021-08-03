@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
 import GameOverTile from './GameOverTile'
 
 const GameOverContainer = (props) => {
@@ -61,7 +59,7 @@ const GameOverContainer = (props) => {
       <div className="navbar-brand">
         <div className="navbar-item">
 
-          <p className="title" style={{ "letter-spacing": "-0.05em", color: "white" }}>Ambidex Game</p>
+          <p className="title" style={{ letterSpacing: "-0.05em", color: "white" }}>Ambidex Game</p>
 
         </div>
       </div>

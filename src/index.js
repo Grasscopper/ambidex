@@ -5,8 +5,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import ZeroEscapeIndexContainer from './ZeroEscapeIndexContainer'
-import AmbidexIndexContainer from './AmbidexIndexContainer'
-import AmbidexGameContainer from './AmbidexGameContainer'
 
 import BoardGame from './BoardGame'
 
@@ -15,8 +13,6 @@ ReactDOM.render(
     <HashRouter basename="nonary">
       <Switch>
         <Route exact path="/" component={ZeroEscapeIndexContainer} />
-        <Route exact path="/play" component={AmbidexIndexContainer} />
-        <Route exact path="/game/:version/:name" component={AmbidexGameContainer} />
         <Route exact path="/boardgame" component={BoardGame} />
       </Switch>
     </HashRouter>
