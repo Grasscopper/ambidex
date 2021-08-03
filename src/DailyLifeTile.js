@@ -20,7 +20,7 @@ const DailyLifeTile = (props) => {
   <>
   <p style={{ fontSize: 28,
   fontWeight: "bold",
-  backgroundColor: "#06BEE1",
+  backgroundColor: "#1FD1B2",
   marginTop: 10 }}>BRACELET {props.character.bracelet}</p>
   <p style={{ fontSize: 28,
   fontWeight: "bold",
@@ -56,7 +56,7 @@ const DailyLifeTile = (props) => {
     <>
     <p style={{ fontSize: 28,
     fontWeight: "bold",
-    backgroundColor: "#06BEE1",
+    backgroundColor: "#1FD1B2",
     marginTop: 10 }}>BRACELET {props.character.bracelet}</p>
 
     <p style={{ fontSize: 28,
@@ -88,7 +88,7 @@ const DailyLifeTile = (props) => {
     <>
     <p style={{ fontSize: 28,
     fontWeight: "bold",
-    backgroundColor: "#06BEE1",
+    backgroundColor: "#1FD1B2",
     marginTop: 10 }}>BRACELET {props.character.bracelet}</p>
     <p style={{ fontSize: 28,
       fontWeight: "bold",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import DailyLifeTile from './DailyLifeTile'
+import TutorialComponent from './TutorialComponent'
 
 import { shuffle } from './myFunctions'
 
@@ -35,53 +36,7 @@ const DailyLife = (props) => {
 
   if (tutorial) {
     tutorialSelected = "has-background-danger-light"
-    showTutorial =
-    <section className="hero is-small is-info" onClick={handleTutorial}>
-      <div className="hero-body">
-
-        <p className="title">
-          Tutorial
-        </p>
-        <p className="subtitle">
-          How to Play the Daily Life Phase
-        </p>
-
-        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
-          <h1 className="title" style={{ color: "white" }}>
-          Spending Time with Others
-          </h1>
-
-          <div className="content" style={{ color: "white" }}>
-            <p>
-            Select 2 characters to build their Trust.
-            The higher their Trust, the more likely they are to Ally.
-            After you spend your time, click "Enter AB Room" to
-            advance to the next stage and test your Trust with the other
-            prisoners.
-            </p>
-          </div>
-        </section>
-
-        <section className="section notification" style={{ backgroundColor: "#282C34" }}>
-          <h1 className="title" style={{ color: "white" }}>
-          Game Consequences
-          </h1>
-
-          <div className="content" style={{ color: "white" }}>
-            <p>
-            When you come back from the AB Room, and begin a new day,
-            your choice will change your relationships. If both teams
-            chose to Ally, then your partner (if any) and the
-            opponent team will build Trust (+1 Heart). However,
-            if you Betray their Ally, then the opponent team's Trust
-            for you will be forever broken. Their Trust for you will
-            become 10 and can never be repaired.
-            </p>
-          </div>
-        </section>
-
-      </div>
-    </section>
+    showTutorial = <TutorialComponent handleTutorial={handleTutorial} />
   }
 
   const handlePhase = (event) => {
