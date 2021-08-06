@@ -20,9 +20,9 @@ const TutorialComponent = (props) => {
           <div className="content" style={{ color: "white" }}>
             <p>
             9 persons are trapped in an unknown, isolated location.
-            The mastermind, known as Zero, kidnapped them and is forcing them to play the Ambidex Game.
+            The mastermind, known as Zero, has kidnapped them and is forcing them to play the Ambidex Game.
             They each have a bracelet chained onto their left wrist.
-            Each BRACELET displays a points value that starts at 3.
+            Each BRACELET displays a point value that starts at 3.
             Zero explains the rules of the game to the prisoners:
             </p>
             <strong>
@@ -44,14 +44,20 @@ const TutorialComponent = (props) => {
             Each team has 2 choices, ALLY or BETRAY, that will determine who gains and loses points.
             </p>
             <p>
-            If you and the opposing team both ALLY, you both gain +2 points.
+              <strong>
+              If you and the opposing team both ALLY, you both gain +2 points.
+              </strong>
             </p>
             <p>
-            If a team chooses to BETRAY, and the opponent chooses to ALLY,
-            then the traitor gains +3 points and the opponent loses -2 points.
+              <strong>
+              If a team chooses to BETRAY, and the opponent chooses to ALLY,
+              then the traitor gains +3 points and the opponent loses -2 points.
+              </strong>
             </p>
             <p>
-            If both teams choose to BETRAY, then 0 points are awarded to each team.
+              <strong>
+              If both teams choose to BETRAY, then 0 points are awarded to each team.
+              </strong>
             </p>
           </div>
         </section>
@@ -99,7 +105,7 @@ const TutorialComponent = (props) => {
             </p>
             <p>
             However, if you BETRAY your opponent,
-            they will never trust you again and will almost always choose to BETRAY you (90% chance to Betray).
+            they will never trust you again and will almost always choose to BETRAY you (90% chance to BETRAY).
             </p>
           </div>
         </section>
